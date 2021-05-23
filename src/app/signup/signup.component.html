@@ -1,0 +1,60 @@
+
+<div class="signup-form">
+<mat-card class="signup-card">
+    <mat-card-title>Madwe Registration</mat-card-title>
+    <mat-card-content>
+        <form class="my-form">
+            
+            <mat-form-field class="full-width-name" appearance="outline" >
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="Praveen" name="fname" required autocomplete="off">
+            </mat-form-field>
+            <mat-form-field class="full-width-name" appearance="outline"> 
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Hegde" name="lname" required autocomplete="off">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="pshegde22@gmail.com" name="email" required autocomplete="off">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="8277004799" name="phone" required autocomplete="off">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="" name="password" required autocomplete="off">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput placeholder="" name="confirmPassword" required autocomplete="off">
+            </mat-form-field>
+            <section class="example-section">
+                <label class="full-width">Relationship Status *: </label>
+                <mat-radio-group>
+                    <mat-radio-button value="after">Single</mat-radio-button>
+                    <mat-radio-button value="before">Divorced</mat-radio-button>
+                </mat-radio-group>
+            </section>
+            <br>
+            <section class="example-section">
+                <label class="full-width">Gender *: </label>
+                <mat-radio-group>
+                    <mat-radio-button value="after">Male</mat-radio-button>
+                    <mat-radio-button value="before">Female</mat-radio-button>
+                    <mat-radio-button value="before">Other</mat-radio-button>
+                </mat-radio-group>
+            </section>
+            <mat-form-field class="full-width">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" required autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="register()" color="primary">REGISTER</button>
+    </mat-card-actions>
+</mat-card>
+</div>

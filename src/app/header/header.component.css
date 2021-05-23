@@ -1,0 +1,14 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+   .mat-toolbar {
+    background: url("/../assets/madwe_home.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    box-sizing: border-box;
+    box-shadow: inset ;
+    background-image: cross-fade();
+  }
+
+ 

@@ -1,0 +1,30 @@
+
+<div class="login-form">
+   <mat-card class="login-card">
+      <mat-card-title>Madwe Login</mat-card-title>
+      <mat-card-content>
+         <form class="my-form">
+            <mat-form-field class="login-form-field" appearance="fill">
+               <label>Email / Phone Number *</label>
+               <input matInput placeholder="Ex: pshegde22@gmail.com/8277004799" [formControl]="email" required>
+               <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+             </mat-form-field>
+            <!-- <mat-form-field class="full-width">
+               <mat-label>Password</mat-label>
+               <input matInput placeholder="Password" name="password">
+            </mat-form-field> -->
+            <mat-form-field class="login-form-field" appearance="fill">
+               <label >Password *</label>
+               <input matInput [type]="hide ? 'password' : 'text'" >
+               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+               </button>
+             </mat-form-field>
+         </form>
+      </mat-card-content>
+      <mat-card-actions>
+         <button mat-raised-button (click)="login()">LOGIN</button>
+         <button mat-raised-button (click)="cancel()">Cancel</button><!--TODO should redirect to hOme-->
+      </mat-card-actions>
+   </mat-card>
+</div>

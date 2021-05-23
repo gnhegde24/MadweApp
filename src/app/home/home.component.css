@@ -1,0 +1,55 @@
+
+.home{
+    margin: 0;
+    padding: 0;
+    background: url("/../assets/madwe_home.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    color: aliceblue;
+  }
+
+  .mat-card-title{
+    line-height: 48px;
+    margin: 24px 0;
+    letter-spacing: 2px;
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    padding: 10px 0;
+    color:white;
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    font-size: 50px;
+  }
+
+  .home-card {
+    width: 400px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    padding: 0 24px 48px;
+    box-shadow: 0 1px 20px 5px  rgba(255,255,255,0.5);
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  ::ng-deep .home-card-content{
+    color: white;
+  }
+
+  .mat-raised-button{
+    background: #FCDB00;
+    border: none;
+    outline: none;
+    color: #333;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+  }
