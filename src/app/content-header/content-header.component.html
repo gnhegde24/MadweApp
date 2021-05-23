@@ -1,0 +1,42 @@
+<header class="header" *ngIf="visible()">
+    <mat-toolbar>
+        <div class="menu-button">
+            <button mat-raised-button (click)="onToggleSidenav()">
+            <span class="material-icons">list</span>
+            </button>
+        </div>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <span class="my-tittle"><i>Madwe</i></span>
+        <div class="logout-button">
+            <button mat-raised-button (click)="logout()"> <span class="material-icons"> roofing </span> LogOut</button>
+        </div>
+    </mat-toolbar>
+
+    
+</header>
+
+<!--  (click)="snav.toggle()"
+<mat-sidenav #snav>
+    <div class="navbar">
+
+        <div class="divider" (backdropClick)="close()">
+            <mat-list>
+                <div class="profile"><span class="material-icons"> account_circle </span></div>
+                <a class="nav-link" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"
+                    *ngFor="let link of links" [routerLink]="[link.href]">
+                    <mat-list-item>
+                        <mat-icon inline="true" mat-list-icon>{{link.icon}}</mat-icon>
+                        <div mat-line>{{link.name}}</div>
+                    </mat-list-item>
+                </a>
+            </mat-list>
+        </div>
+    </div>
+</mat-sidenav> -->
+
+
+
+<!-- <div class="component">
+    <router-outlet class="content"></router-outlet>
+</div> -->

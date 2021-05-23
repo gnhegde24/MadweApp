@@ -1,0 +1,14 @@
+
+
+.profile .material-icons{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  font-size: 150px;
+}
+
+.mat-list-item{
+  font-family: 'Ravi Prakash', cursive;
+  font-size: 24px;
+  left: 0;
+}

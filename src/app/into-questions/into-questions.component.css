@@ -1,0 +1,67 @@
+.introq{
+  padding: 60px 0 0 0;
+  min-height: 100vh;
+  
+}
+
+.question-header{
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  font-size: 48px;
+  font-family: 'Sedgwick Ave Display', cursive;
+  font-weight: 900;
+  position: sticky;
+}
+
+
+.select-questions-chip-list {
+  font-family: 'Indie Flower', cursive;
+  font-size: 24px;
+  font-weight: bolder;
+    margin-left: auto;
+    margin-right: auto;
+   width: 70%;
+      align-items: center;
+      display: block;
+
+      border-radius: 10px;
+      padding: 10px 10px 10px ;
+      box-shadow: 0 1px 20px 5px  rgba(10, 9, 9, 0.5);
+      box-sizing: border-box;
+      left: 5px;
+      right: 5px;
+  }
+
+  .mat-standard-chip {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 18px;
+  font-weight: bolder;
+  color:rgb(23, 18, 58)
+  }
+
+.mat-option{
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 18px;
+  font-weight: bolder;
+  color:rgb(23, 18, 58)
+}
+
+::ng-deep .mat-autocomplete-panel {
+  position: fixed;
+  bottom: 30px;
+}
+
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+    background-color:lightsteelblue;
+  }
+
+.back-icon{
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  input.mat-chip-input{
+    flex: 1 0 25px;
+  }

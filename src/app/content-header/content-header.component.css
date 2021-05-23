@@ -1,0 +1,14 @@
+  .my-tittle{
+    flex: 1 1 auto;
+    font-family: 'Pacifico', cursive;
+    font-size: 42px;
+    font-weight: 450;
+  }
+
+.header .mat-toolbar {
+  background:lightsteelblue;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+ }

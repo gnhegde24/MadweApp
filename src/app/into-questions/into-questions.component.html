@@ -1,0 +1,45 @@
+<div class="introq">
+
+    <div class="question-header">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+            </style>
+            <body>
+                <div><b><i>Ask Your Questions Here!</i></b></div>
+              </body>
+  
+    </div>
+
+
+    <mat-form-field class="select-questions-chip-list">
+        
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&family=Lato&family=Oswald&display=swap');
+                </style>
+        <mat-label>Top 10 questions</mat-label>
+        <mat-chip-list #chipList aria-label="questions selection">
+            <mat-chip *ngFor="let questions of questionss" [selectable]="selectable" [removable]="removable"
+                (removed)="remove(questions)">
+                {{questions}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
+        <mat-chip-list><input placeholder="New question..." #questionsInput [formControl]="questionsCtrl" [matAutocomplete]="auto"
+                [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let questions of filteredquestionss | async" [value]="questions">
+                {{questions}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+    <div class="back-icon">
+        <button mat-fab aria-label="back" matTooltip="Go back" (click)="back()">
+            <mat-icon> reply_all</mat-icon>
+        </button>
+    </div>
+
+
+</div>
