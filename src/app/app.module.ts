@@ -42,20 +42,27 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
 import { SignupComponent } from './signup/signup.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; 
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { IntoQuestionsComponent } from './into-questions/into-questions.component';
+import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
+import { IntroInterestsComponent } from './intro-interests/intro-interests.component';
+import { ContentHeaderComponent } from './content-header/content-header.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ContentFooterComponent } from './content-footer/content-footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    LogoutComponent,
     SignupComponent,
-    HeaderComponent,
-    FooterComponent
+    IntoQuestionsComponent,
+    IntroInterestsComponent,
+    ContentHeaderComponent,
+    NavbarComponent,
+    ContentFooterComponent
   ],
   imports: [
     BrowserModule,
@@ -97,10 +104,18 @@ import { FooterComponent } from './footer/footer.component';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule,
+    MatPasswordStrengthModule
   ],
 
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

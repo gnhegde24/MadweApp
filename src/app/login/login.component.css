@@ -9,8 +9,6 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  font-family: 'Montserrat', sans-serif;
-  color: aliceblue;
 }
 
 .mat-card-title{
@@ -38,11 +36,11 @@
   box-sizing: border-box;
 }
 
-.login-form-field{
-  width: 100%;
-  color: #fff;
-  font-size:16px;
-}
+::ng-deep  .mat-form-field-label {
+  color: white !important;
+  opacity: 0.9;
+ }
+
 
 ::placeholder{
   color:yellowgreen;
@@ -51,12 +49,12 @@
   font-size: small;
 }
 
-.mat-raised-button{
-  background: #FCDB00;
-  border: none;
-  outline: none;
-  color: #333;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
+
+.mat-input-element{
+  color: white;
+}
+
+.mat-form-field{
+  width:  100%;
+  color: white;
 }

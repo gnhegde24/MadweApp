@@ -38,10 +38,16 @@
     box-shadow: 0 1px 20px 5px  rgba(255,255,255,0.5);
     box-sizing: border-box;
     text-align: center;
+    width: fit-content;
   }
 
   ::ng-deep .home-card-content{
+    
     color: white;
+  }
+  ::ng-deep .message{
+    font-family: 'Nosifer', cursive;
+    font-size: 30px;
   }
 
   .mat-raised-button{

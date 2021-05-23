@@ -1,63 +1,63 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroupDirective, FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../service/authentication.service';
+import { ErrorStateMatcher } from '@angular/material/core';
 
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  hide = true;
-  form: FormGroup;
-  public loginInvalid: boolean;
-  private formSubmitAttempt: boolean;
-  private returnUrl: string;
 
-  constructor(private fb: FormBuilder,
+loginForm: FormGroup;
+matcher = new MyErrorStateMatcher();
+isLoadingResults = false;
+
+
+  hide = true;
+  
+  //emailRegx = /^(([^<>+()\[\]\\.,;:\s@"-#$%&=]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
+
+  constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthenticationService) { }
 
   async ngOnInit() {
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/game';
-    this.form = this.fb.group({
-      username: ['', Validators.email],
-      password: ['', Validators.required]
+    this.loginForm = this.formBuilder.group({
+      emailOrPhone: [null, [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      password: [null, Validators.required]
     });
-
-    if (await this.authService.isUserLoggedIn()) {
-      await this.router.navigate([this.returnUrl]);
-    }
   }
 
-  async login() {
-    this.loginInvalid = false;
-    this.formSubmitAttempt = false;
-    if (this.form.valid) {
-      try {
-        const username = this.form.get('username').value;
-        const password = this.form.get('password').value;
-        await this.authService.authenticate(username, password);
-      } catch (err) {
-        this.loginInvalid = true;
-      }
-    } else {
-      this.formSubmitAttempt = true;
-    }
-  }
-  email = new FormControl('', [Validators.required, Validators.email]);
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
+  onFormSubmit(form: NgForm) {
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    /* if(!this.loginForm.valid){
+      return;
+    }
+ */
+    this.authService.login(form)
+      .subscribe(res => {
+        console.log(res);
+        if (res.token) {
+          localStorage.setItem('token', res.token);
+          this.router.navigate(['introq']);
+        }
+      }, (err) => {
+        console.log(err);
+      });
   }
 
   cancel() {
-
+    this.router.navigate(['home']);
   }
 
 }

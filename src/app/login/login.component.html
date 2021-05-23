@@ -1,30 +1,44 @@
-
 <div class="login-form">
+   <div class="example-loading-shade" *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+   </div>
    <mat-card class="login-card">
       <mat-card-title>Madwe Login</mat-card-title>
       <mat-card-content>
-         <form class="my-form">
-            <mat-form-field class="login-form-field" appearance="fill">
-               <label>Email / Phone Number *</label>
-               <input matInput placeholder="Ex: pshegde22@gmail.com/8277004799" [formControl]="email" required>
-               <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-             </mat-form-field>
+         <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+            <mat-form-field>
+               <mat-label>Email / Phone Number</mat-label>
+               <input matInput type="email" placeholder="Ex: pshegde22@gmail.com/8277004799"
+                  formControlName="emailOrPhone" required autocomplete="off" [errorStateMatcher]="matcher">
+               <mat-error>
+                  <span *ngIf="!loginForm.get('emailOrPhone').valid && loginForm.get('emailOrPhone').touched">Please
+                     enter your email</span>
+               </mat-error>
+            </mat-form-field>
             <!-- <mat-form-field class="full-width">
                <mat-label>Password</mat-label>
                <input matInput placeholder="Password" name="password">
             </mat-form-field> -->
-            <mat-form-field class="login-form-field" appearance="fill">
-               <label >Password *</label>
-               <input matInput [type]="hide ? 'password' : 'text'" >
-               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-form-field>
+               <mat-label>Password</mat-label>
+               <input matInput type="password" [type]="hide ? 'password' : 'text'" formControlName="password" required
+                  autocomplete="off" [errorStateMatcher]="matcher">
+               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                </button>
-             </mat-form-field>
+               <mat-error>
+                  <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter your
+                     password</span>
+               </mat-error>
+            </mat-form-field>
+
+            <mat-card-actions>
+               <button mat-raised-button type="submit" [disabled]="loginForm.invalid" [style.color]="'black'"
+                  [style.background-color]="loginForm.invalid ? 'red' : 'yellow' ">LOGIN</button>
+               <button mat-raised-button (click)="cancel()">Cancel</button>
+            </mat-card-actions>
          </form>
       </mat-card-content>
-      <mat-card-actions>
-         <button mat-raised-button (click)="login()">LOGIN</button>
-         <button mat-raised-button (click)="cancel()">Cancel</button><!--TODO should redirect to hOme-->
-      </mat-card-actions>
    </mat-card>
 </div>

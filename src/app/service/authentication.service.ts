@@ -1,29 +1,57 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+
+const apiUrl = 'http://localhost:8080/api/madwe/';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthenticationService {
 
-  constructor() { }
+  isLoggedIn = false;
+  redirectUrl: string;
 
-  //Authenticate the username and password..The sessionStorage object stores data for only one session . So the data gets deleted if the browser is closed
-  authenticate(username, password) {
-    if (username === "test@gmail.com" && password === "test") {
-      sessionStorage.setItem('username', username)
-      return true;
-    } else {
-      return false;
-    }
+  constructor(private http: HttpClient) { }
+
+  login(data: any): Observable<any> {
+    return this.http.post<any>(apiUrl + 'login', data)
+      .pipe(
+        tap(_ => this.isLoggedIn = true),
+        catchError(this.handleError('login', []))
+      );
   }
-  //checks the session storage if user name exists. If it does then return true
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem('username')
-    console.log(!(user === null))
-    return !(user === null)
+
+  logout(): Observable<any> {
+    return this.http.get<any>(apiUrl + 'signout')
+      .pipe(
+        tap(_ => this.isLoggedIn = false),
+        catchError(this.handleError('logout', []))
+      );
   }
-  //This method clears the session storage of user name
-  logOut() {
-    sessionStorage.removeItem('username')
+
+  register(data: any): Observable<any> {
+    return this.http.post<any>(apiUrl + 'register', data)
+      .pipe(
+        tap(_ => this.log('login')),
+        catchError(this.handleError('login', []))
+      );
   }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      console.error(error); // log to console instead
+      this.log(`${operation} failed: ${error.message}`);
+
+      return of(result as T);
+    };
+  }
+
+  private log(message: string) {
+    console.log(message);
+  }
+
 }

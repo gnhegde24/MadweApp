@@ -1,60 +1,108 @@
-
 <div class="signup-form">
-<mat-card class="signup-card">
-    <mat-card-title>Madwe Registration</mat-card-title>
-    <mat-card-content>
-        <form class="my-form">
-            
-            <mat-form-field class="full-width-name" appearance="outline" >
-                <mat-label>First Name</mat-label>
-                <input matInput placeholder="Praveen" name="fname" required autocomplete="off">
-            </mat-form-field>
-            <mat-form-field class="full-width-name" appearance="outline"> 
-                <mat-label>Last Name</mat-label>
-                <input matInput placeholder="Hegde" name="lname" required autocomplete="off">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <mat-label>Email</mat-label>
-                <input matInput placeholder="pshegde22@gmail.com" name="email" required autocomplete="off">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <mat-label>Phone</mat-label>
-                <input matInput placeholder="8277004799" name="phone" required autocomplete="off">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <mat-label>Password</mat-label>
-                <input matInput placeholder="" name="password" required autocomplete="off">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <mat-label>Confirm Password</mat-label>
-                <input matInput placeholder="" name="confirmPassword" required autocomplete="off">
-            </mat-form-field>
-            <section class="example-section">
-                <label class="full-width">Relationship Status *: </label>
-                <mat-radio-group>
-                    <mat-radio-button value="after">Single</mat-radio-button>
-                    <mat-radio-button value="before">Divorced</mat-radio-button>
-                </mat-radio-group>
-            </section>
-            <br>
-            <section class="example-section">
-                <label class="full-width">Gender *: </label>
-                <mat-radio-group>
-                    <mat-radio-button value="after">Male</mat-radio-button>
-                    <mat-radio-button value="before">Female</mat-radio-button>
-                    <mat-radio-button value="before">Other</mat-radio-button>
-                </mat-radio-group>
-            </section>
-            <mat-form-field class="full-width">
-                <mat-label>Date of Birth</mat-label>
-                <input matInput [matDatepicker]="picker" placeholder="Choose a date" required autocomplete="off">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-        </form>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-raised-button (click)="register()" color="primary">REGISTER</button>
-    </mat-card-actions>
-</mat-card>
+
+    <mat-card class="signup-card">
+
+        <mat-card-title>Madwe Registration</mat-card-title>
+
+        <mat-card-content>
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm.value)" class="my-form">
+
+                <mat-form-field class="full-width-name" appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="Ex: Praveen" formControlName="firstName" required autocomplete="off">
+                </mat-form-field>
+
+                <mat-form-field class="full-width-name" appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Ex: Hegde" formControlName="lastName" required autocomplete="off">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput placeholder="Ex: pshegde22@gmail.com" formControlName="email" required
+                        autocomplete="off" [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter
+                            a valid email</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Phone</mat-label>
+                    <input matInput placeholder="Ex: 8277004799" formControlName="phone" required autocomplete="off"
+                        [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="!registerForm.get('phone').valid"> Please enter a valid mobile number. Max 10
+                            digits.</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Password</mat-label>
+                    <mat-pass-toggle-visibility #toggle [style.color]="'white'" matSuffix></mat-pass-toggle-visibility>
+                    <input matInput [type]="toggle.type" placeholder="Example@123" formControlName="password" required
+                        autocomplete="off" [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="!registerForm.get('password').valid"> Please enter a valid password. Min 8
+                            characters</span>
+                    </mat-error>
+
+                </mat-form-field>
+
+
+                <section class="strength-section">
+                    <mat-password-strength #passwordComponent [password]="registerForm.get('password').value">
+                    </mat-password-strength>
+                </section>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Confirm Password</mat-label>
+                    <mat-pass-toggle-visibility #confirmToggle [style.color]="'white'" matSuffix>
+                    </mat-pass-toggle-visibility>
+                    <input matInput [type]="confirmToggle.type" placeholder="" formControlName="confirmPassword"
+                        required autocomplete="off" [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="registerForm.get('confirmPassword').hasError('mustMatch')">Passwords do not
+                            match</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <section class="reln-section">
+                    <label class="full-width">Relationship Status *: </label>
+                    <mat-radio-group formControlName="relnStatus">
+                        <mat-radio-button value="Single">Single</mat-radio-button>
+                        <mat-radio-button value="Divorced">Divorced</mat-radio-button>
+                    </mat-radio-group>
+                </section>
+
+                <br>
+
+                <section class="gender-section">
+                    <label class="full-width">Gender *: </label>
+                    <mat-radio-group formControlName="gender">
+                        <mat-radio-button value="Male">Male</mat-radio-button>
+                        <mat-radio-button value="Female">Female</mat-radio-button>
+                        <mat-radio-button value="Other">Other</mat-radio-button>
+                    </mat-radio-group>
+                </section>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" placeholder="Choose a date"
+                        required autocomplete="off">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-card-actions>
+                    
+                    <button mat-raised-button type="submit"  [disabled]="registerForm.invalid" [style.color]="'black'"
+                        [style.background-color]="registerForm.invalid ? 'red' : 'yellow' " #tooltip="matTooltip"
+                        matTooltip="Click to register"
+                        matTooltipPosition="below">REGISTER</button>
+                    <button mat-raised-button (click)="cancel()">Cancel</button>
+                </mat-card-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
 </div>
