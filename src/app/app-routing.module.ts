@@ -5,7 +5,9 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { IntoQuestionsComponent } from './into-questions/into-questions.component';
 import {IntroInterestsComponent} from './intro-interests/intro-interests.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import {MatchesComponent} from './matches/matches.component';
+import { BasicInfoComponent } from './basic-info/basic-info.component';
+import {AuthGuardService as AuthGuard} from './service/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -14,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'signup',
@@ -22,15 +24,23 @@ const routes: Routes = [
   },
   {
     path: 'introq',
-    component: IntoQuestionsComponent
+    component: IntoQuestionsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'introi',
-    component: IntroInterestsComponent
+    component: IntroInterestsComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'nav',
-    component: NavbarComponent
+    path: 'matches',
+    component: MatchesComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'basicinfo',
+    component: BasicInfoComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

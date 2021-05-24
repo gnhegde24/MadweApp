@@ -16,7 +16,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -51,6 +51,10 @@ import { IntroInterestsComponent } from './intro-interests/intro-interests.compo
 import { ContentHeaderComponent } from './content-header/content-header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContentFooterComponent } from './content-footer/content-footer.component';
+import { MatchesComponent } from './matches/matches.component';
+import { BasicInfoComponent } from './basic-info/basic-info.component';
+import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
+import { JwtHelperService, JWT_OPTIONS    } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -62,7 +66,9 @@ import { ContentFooterComponent } from './content-footer/content-footer.componen
     IntroInterestsComponent,
     ContentHeaderComponent,
     NavbarComponent,
-    ContentFooterComponent
+    ContentFooterComponent,
+    MatchesComponent,
+    BasicInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -106,15 +112,19 @@ import { ContentFooterComponent } from './content-footer/content-footer.componen
     MatTreeModule,
     MatNativeDateModule,
     HttpClientModule,
-    MatPasswordStrengthModule
+    MatPasswordStrengthModule,
+    BackButtonDisableModule.forRoot()
   ],
 
   providers: [
+  
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+        JwtHelperService
   ],
   bootstrap: [AppComponent]
 })

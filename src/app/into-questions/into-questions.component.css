@@ -65,3 +65,9 @@
   input.mat-chip-input{
     flex: 1 0 25px;
   }
+
+  .submit-icon{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+  }

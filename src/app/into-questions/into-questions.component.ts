@@ -86,4 +86,8 @@ export class IntoQuestionsComponent {
   back(){
     this.router.navigate(['introi']);
   }
+
+  submit(){
+    this.router.navigate(['basicinfo']);
+  }
 }

@@ -19,8 +19,7 @@
 
                 <mat-form-field class="full-width">
                     <mat-label>Email</mat-label>
-                    <input type="email" matInput placeholder="Ex: pshegde22@gmail.com" formControlName="email" required
-                        autocomplete="off" [errorStateMatcher]="matcher">
+                    <input type="email" matInput placeholder="Ex: pshegde22@gmail.com" formControlName="email" required autocomplete="off" [errorStateMatcher]="matcher">
                     <mat-error>
                         <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter
                             a valid email</span>
@@ -29,8 +28,7 @@
 
                 <mat-form-field class="full-width">
                     <mat-label>Phone</mat-label>
-                    <input matInput placeholder="Ex: 8277004799" formControlName="phone" required autocomplete="off"
-                        [errorStateMatcher]="matcher">
+                    <input matInput placeholder="Ex: 8277004799" formControlName="phone" required autocomplete="off" [errorStateMatcher]="matcher">
                     <mat-error>
                         <span *ngIf="!registerForm.get('phone').valid"> Please enter a valid mobile number. Max 10
                             digits.</span>
@@ -40,8 +38,7 @@
                 <mat-form-field class="full-width">
                     <mat-label>Password</mat-label>
                     <mat-pass-toggle-visibility #toggle [style.color]="'white'" matSuffix></mat-pass-toggle-visibility>
-                    <input matInput [type]="toggle.type" placeholder="Example@123" formControlName="password" required
-                        autocomplete="off" [errorStateMatcher]="matcher">
+                    <input matInput [type]="toggle.type" placeholder="Example@123" formControlName="password" required autocomplete="off" [errorStateMatcher]="matcher">
                     <mat-error>
                         <span *ngIf="!registerForm.get('password').valid"> Please enter a valid password. Min 8
                             characters</span>
@@ -59,8 +56,7 @@
                     <mat-label>Confirm Password</mat-label>
                     <mat-pass-toggle-visibility #confirmToggle [style.color]="'white'" matSuffix>
                     </mat-pass-toggle-visibility>
-                    <input matInput [type]="confirmToggle.type" placeholder="" formControlName="confirmPassword"
-                        required autocomplete="off" [errorStateMatcher]="matcher">
+                    <input matInput [type]="confirmToggle.type" placeholder="" formControlName="confirmPassword" required autocomplete="off" [errorStateMatcher]="matcher">
                     <mat-error>
                         <span *ngIf="registerForm.get('confirmPassword').hasError('mustMatch')">Passwords do not
                             match</span>
@@ -88,18 +84,14 @@
 
                 <mat-form-field class="full-width">
                     <mat-label>Date of Birth</mat-label>
-                    <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" placeholder="Choose a date"
-                        required autocomplete="off">
+                    <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" placeholder="Choose a date" required autocomplete="off">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
 
                 <mat-card-actions>
-                    
-                    <button mat-raised-button type="submit"  [disabled]="registerForm.invalid" [style.color]="'black'"
-                        [style.background-color]="registerForm.invalid ? 'red' : 'yellow' " #tooltip="matTooltip"
-                        matTooltip="Click to register"
-                        matTooltipPosition="below">REGISTER</button>
+
+                    <button mat-raised-button type="submit" [disabled]="registerForm.invalid" [style.color]="'black'" [style.background-color]="registerForm.invalid ? 'red' : 'yellow' " #tooltip="matTooltip" matTooltip="Click to register" matTooltipPosition="below">REGISTER</button>
                     <button mat-raised-button (click)="cancel()">Cancel</button>
                 </mat-card-actions>
             </form>
