@@ -1,28 +1,8 @@
-![Home](https://user-images.githubusercontent.com/29662068/119316619-cd458880-bc94-11eb-9a88-1a1dd4037cf1.JPG)
-# Madwe
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Upload success message](https://user-images.githubusercontent.com/29662068/119316663-da627780-bc94-11eb-84fa-0d2fd145f2fd.JPG)
+![BasicInfo](https://user-images.githubusercontent.com/29662068/119316670-dc2c3b00-bc94-11eb-8852-ebd80cc4dc01.JPG)
+![Home](https://user-images.githubusercontent.com/29662068/119316675-dcc4d180-bc94-11eb-92ec-b59c5d3ce143.JPG)
+![Interests](https://user-images.githubusercontent.com/29662068/119316678-dd5d6800-bc94-11eb-8178-c306110194b4.JPG)
+![Login](https://user-images.githubusercontent.com/29662068/119316682-ddf5fe80-bc94-11eb-880d-dc775d342975.JPG)
+![NavBar](https://user-images.githubusercontent.com/29662068/119316685-ddf5fe80-bc94-11eb-8aba-325c928626ed.JPG)
+![Questions](https://user-images.githubusercontent.com/29662068/119316687-df272b80-bc94-11eb-836e-a4117aff5b84.JPG)
+![Signin](https://user-images.githubusercontent.com/29662068/119316690-dfbfc200-bc94-11eb-8e2b-9991bba48966.JPG)
