@@ -12,7 +12,7 @@
                   formControlName="emailOrPhone" required autocomplete="off" [errorStateMatcher]="matcher">
                <mat-error>
                   <span *ngIf="!loginForm.get('emailOrPhone').valid && loginForm.get('emailOrPhone').touched">Please
-                     enter your email</span>
+                     enter valid email</span>
                </mat-error>
             </mat-form-field>
             <!-- <mat-form-field class="full-width">

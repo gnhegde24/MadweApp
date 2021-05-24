@@ -16,7 +16,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
 loginForm: FormGroup;
 matcher = new MyErrorStateMatcher();
 isLoadingResults = false;
@@ -32,8 +31,13 @@ isLoadingResults = false;
     private authService: AuthenticationService) { }
 
   async ngOnInit() {
+
+    if(localStorage.getItem('token')){
+      this.router.navigate(['matches']);
+  }
+    
     this.loginForm = this.formBuilder.group({
-      emailOrPhone: [null, [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      emailOrPhone: [null, [Validators.required, Validators.pattern('^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})|([0-9]{10})+$')]],
       password: [null, Validators.required]
     });
   }
@@ -49,7 +53,8 @@ isLoadingResults = false;
         console.log(res);
         if (res.token) {
           localStorage.setItem('token', res.token);
-          this.router.navigate(['introq']);
+          localStorage.setItem("user",JSON.stringify(res.user));
+          this.router.navigate(['matches']);
         }
       }, (err) => {
         console.log(err);

@@ -24,6 +24,7 @@ export class ContentHeaderComponent  {
   
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('user')
     this.router.navigate(['home']);
   }
 

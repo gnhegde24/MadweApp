@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 const apiUrl = 'http://localhost:8080/api/madwe/';
 
@@ -14,7 +15,15 @@ export class AuthenticationService {
   isLoggedIn = false;
   redirectUrl: string;
 
-  constructor(private http: HttpClient) { }
+
+
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
+
+   isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    return !this.jwtHelper.isTokenExpired(token);
+  }
+
 
   login(data: any): Observable<any> {
     return this.http.post<any>(apiUrl + 'login', data)
@@ -53,5 +62,6 @@ export class AuthenticationService {
   private log(message: string) {
     console.log(message);
   }
+
 
 }

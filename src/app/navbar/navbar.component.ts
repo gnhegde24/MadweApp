@@ -15,19 +15,16 @@ export class NavbarComponent  {
 
    public links = [
      { name: 'Profile', href:'/', icon: 'manage_accounts'},
-       {name: 'Intro Questions', href: '/introi', icon: 'quiz'},
-       {name: 'Your Questions', href: '/introq', icon: 'settings_accessibility'}
+     {name: 'Login', href: '/login', icon: 'login'},
+     {name: 'Signup', href: '/signup', icon: 'password'},
+     {name: 'Basic Info', href: '/basicinfo', icon: 'fingerprint'},
+       {name: 'Interests', href: '/introi', icon: 'flutter_dash'},
+       {name: 'Your Questions', href: '/introq', icon: 'question_answer'},
+      {name: 'Matches', href: '/matches', icon: 'connect_without_contact'},
+      {name: 'LogOut', href: '/home', icon: 'logout'},
        ];
 
-  title = 'dashboard-app';
 
-  close(){
-    this.sidenav.close();
-  }
-  hide() { this.visible = false; }
-
-  show() { this.visible = true; }
-
-  toggle() { this.visible = !this.visible; }
+ 
 
 }

@@ -1,0 +1,154 @@
+<div class="basicInfo">
+    <div class="title">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Sancreek&display=swap');
+        </style>
+        <label>Basic Info!</label>
+    </div>
+    <form class="basicInfo-form">
+
+        <table class="full-width-1" cellspacing="0">
+            <td class="height-weight">
+                <tr>
+                    <td>
+                        <mat-form-field class="height-column" appearance="outline">
+                            <mat-label>Height</mat-label>
+                            <input matInput placeholder="Ex: 172/5.5" required autocomplete="off">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <section>
+                            <mat-radio-group>
+                                <mat-radio-button class="wrap-mat-radio-label" value="cm">cm</mat-radio-button>
+                                <mat-radio-button lass="wrap-mat-radio-label" value="ft">ft</mat-radio-button>
+                            </mat-radio-group>
+                        </section>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="weight-column" appearance="outline">
+                            <mat-label>Weight</mat-label>
+                            <input matInput placeholder="Ex: 60/132" required autocomplete="off">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <section>
+                            <mat-radio-group>
+                                <mat-radio-button class="wrap-mat-radio-label" value="kg">kg</mat-radio-button>
+                                <mat-radio-button lass="wrap-mat-radio-label" value="lbs">lbs</mat-radio-button>
+                            </mat-radio-group>
+                        </section>
+                    </td>
+                </tr>
+            </td>
+            <td class="profile-details">
+                <tr>
+                    <label class="circle" matTooltip="Click on to choose a photo" [ngStyle]="{'background-color':  circleColor }">
+                        <input type="file"  (change)="onFileChange($event)" hidden/>
+                        <img *ngIf="!showInitials" src={{photoUrl}}>
+                        <div *ngIf="showInitials" class="circle">
+                            {{initials}}
+                        </div>
+                    </label>
+                </tr>
+
+            </td>
+        </table>
+
+        <mat-form-field class="full-width">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Ex. 100 Main St" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Address 2</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <table class="full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="full-width">
+                        <mat-label>City</mat-label>
+                        <input matInput placeholder="Ex. Kumta" required>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="full-width">
+                        <mat-label>State</mat-label>
+                        <input matInput placeholder="Ex. Karnataka" required>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="full-width">
+                        <mat-label>Postal Code</mat-label>
+                        <input matInput #postalCode maxlength="5" placeholder="Ex. 581343" required>
+
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+
+        <table class="full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Religion</mat-label>
+                        <mat-select [formControl]="religionControl">
+                            <mat-option>-- None --</mat-option>
+                            <mat-optgroup *ngFor="let religionGroup of religiousGroups" [label]="religionGroup.name">
+                                <mat-option *ngFor="let religion of religionGroup.religion" [value]="religion.value">
+                                    {{religion.viewValue}}
+                                </mat-option>
+                            </mat-optgroup>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Mother tongue</mat-label>
+                        <mat-select [formControl]="languageControl">
+                            <mat-option *ngFor="let language of languages" [value]="language">
+                                {{language}}
+                            </mat-option>
+
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Valid Id Proof</mat-label>
+
+                        <mat-select [formControl]="idProofControl">
+                            <label>
+                                <input type="file"  (change)="onProofSubmit($event)" hidden/>
+                            <mat-option *ngFor="let proof of proofs" [value]="proof">
+                                {{proof}}
+
+                            </mat-option>
+                            </label>
+
+                        </mat-select>
+
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+    </form>
+
+    <div class="back-icon">
+        <button mat-fab aria-label="back" matTooltip="Go back" (click)="back()">
+            <mat-icon> reply_all</mat-icon>
+        </button>
+    </div>
+
+    <div class="submit-icon">
+        <button mat-fab aria-label="submit" matTooltip="Submit & Next" (click)="submit()"> 
+            <mat-icon> double_arrow</mat-icon>
+        </button>
+    </div>
+</div>

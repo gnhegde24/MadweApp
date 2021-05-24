@@ -52,7 +52,7 @@ export class SignupComponent{
     this.authService.register(form).subscribe(res => {
       console.log(res);
       if (res.message == "SUCCESS") {
-        this.router.navigate(['login']);
+        this.router.navigate(['introi']);
       }
     }, (err) => {
       console.log(err);
