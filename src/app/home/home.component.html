@@ -1,29 +1,95 @@
+<div class="header">
+    <mat-toolbar>
 
-<div class="home">
 
-    <mat-card class="home-card">
-        <mat-card-title>Madwe</mat-card-title>
+        <div class="logo">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+            </style>
 
-        
-            <mat-card-content class="home-card-content">
-                <div class="message">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap');
+            </style>
+
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+            </style>
+            <p>M</p>
+        </div>
+        <div class="next-logo">
+            <p>adwe</p>
+        </div>
+        <span class="header-spacer"></span>
+        <button class="toolbar-button" mat-raised-button aria-label="Example icon-button with heart icon">
+            <mat-icon>support</mat-icon>
+            About Us
+        </button>
+        <button class="toolbar-button" mat-raised-button aria-label="Example icon-button with heart icon">
+            <mat-icon>perm_media</mat-icon>
+            Gallery
+        </button>
+        <button class="toolbar-button" mat-raised-button aria-label="Example icon-button with heart icon">
+            <mat-icon>school</mat-icon>
+            Career
+        </button>
+        <button class="toolbar-button" mat-raised-button aria-label="Example icon-button with heart icon">
+            <mat-icon>perm_phone_msg</mat-icon>
+            Contact Us
+        </button>
+        <button class="toolbar-button" mat-raised-button aria-label="Example icon-button with share icon">
+            <mat-icon>share</mat-icon>
+        </button>
+    </mat-toolbar>
+</div>
+
+<div class="home-content">
+    <div class="title-quote">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap');
+        </style>
+        <p>" We are all a little weird...!!</p>
+        <p>and life's a little weird and when we find someone</p>
+        <p>whose weirdness is compatible with ours,</p>
+        <p>we join up with them</p>
+        <p>and fall in mutual weirdness, and call it</p>
+        <p>LOVE"</p>
+    </div>
+    <mat-card class="home-card" matTooltip="LogIn to Find a Perfect Match..!" matTooltipPosition="above">
+        <mat-card-title>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap');
+            </style>
+            <span class="home-card-title1"> Madwe</span>
+            <span class="home-card-title2" style="font-size: x-large;">.com</span>
+
+
+
+        </mat-card-title>
+
+
+        <mat-card-content class="home-card-content">
+            <div class="message">
                 <style>
-                    @import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
-                    </style>
-                       
-                        Keep CALM.
-                        <br>
-                        <br>
-                        <i>
-                        It's only a WEDDING!...
-                    </i>
+                    @import url('https://fonts.googleapis.com/css2?family=Englebert&display=swap');
+                </style>
+
+                Keep CALM
+                <br>
+                <br>
+                <i>
+                    It's only a WEDDING !!...
+                </i>
             </div>
-            </mat-card-content>
-        
+        </mat-card-content>
+
         <mat-card-actions>
-            <button mat-raised-button (click)="logIn()">LogIn</button>
-            <button mat-raised-button (click)="signIn()">SignIn</button>
+            <button class="home-card-button" mat-raised-button (click)="openLogInDialoge()">LogIn</button>
+            <button class="home-card-button" mat-raised-button (click)="openSignUpDialoge()">SignIn</button>
         </mat-card-actions>
     </mat-card>
+
+    <footer class="footer">
+        <p>&copy; All rights reserved for <i>Madwe App</i> 2021</p>
+    </footer>
 
 </div>

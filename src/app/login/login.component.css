@@ -1,4 +1,4 @@
-
+/*
 .login-form {
   margin: 0;
   padding: 0;
@@ -11,50 +11,57 @@
   min-height: 100vh;
 }
 
-.mat-card-title{
-  line-height: 48px;
-  margin: 24px 0;
-  letter-spacing: 2px;
-  text-align: center;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  width: 100%;
-  padding: 10px 0;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #fff;
-  background: transparent;
+*/
+
+.mat-card-title {
+    line-height: 48px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    font-size: 32px;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px 0;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
 }
 
-.login-card{
-  width: 400px;
-  background: rgba(0,0,0,0.7);
-  border-radius: 10px;
-  padding: 0 24px 48px;
-  box-shadow: 0 1px 20px 5px  rgba(255,255,255,0.5);
-  box-sizing: border-box;
+.login-card {
+    width: 400px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0 24px;
+    box-shadow: 0 1px 20px 10px rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    border-radius: 25px;
 }
 
-::ng-deep  .mat-form-field-label {
-  color: white !important;
-  opacity: 0.9;
- }
-
-
-::placeholder{
-  color:yellowgreen;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  opacity: 0.5;
-  font-size: small;
+::ng-deep .mat-form-field-label {
+    color: white !important;
+    opacity: 0.9;
 }
 
-
-.mat-input-element{
-  color: white;
+::placeholder {
+    color: yellowgreen;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    opacity: 0.5;
+    font-size: small;
 }
 
-.mat-form-field{
-  width:  100%;
-  color: white;
+.mat-input-element {
+    color: white;
+}
+
+.mat-form-field {
+    width: 100%;
+    color: white;
+}
+
+.mat-raised-button {
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
 }

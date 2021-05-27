@@ -3,37 +3,91 @@
     <div class="question-header">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
-            </style>
-            <body>
-                <div><b><i>Ask Your Questions Here!</i></b></div>
-              </body>
-  
+        </style>
+
+        <body>
+            <div><b><i>Ask Your Questions Here!</i></b></div>
+        </body>
+
     </div>
 
 
-    <mat-form-field class="select-questions-chip-list">
-        
+    <mat-grid-list cols="2" rowHeight="fit">
+
+        <mat-grid-tile [colspan]="1" [rowspan]="3" class="top-questions" #tooltip="matTooltip" matTooltip="Scroll to see more Questions" (scroll)="tooltip.hide()">
+
+
+            <table class="questions" cellspacing="0">
+                <tr>
+                    <div class="q-label">
+                        <label>Top Questions:</label>
+                    </div>
+                </tr>
+
+                <tr>
+                    <div class="chip-list">
+                        <mat-chip-list >
+
+                            <mat-chip *ngFor="let questions of questionss"   [removable]="removable"  (removed)="remove(questions)" (click)="addToQuestions(questions)" matTooltip="Click to add this question">
+                                {{questions}}
+                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                    </mat-chip>
+                                    </mat-chip-list>
+                    </div>
+                </tr>
+            </table>
+
+
+
+
+
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="4" class="added-questions">
+
+
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&family=Lato&family=Oswald&display=swap');
-                </style>
-        <mat-label>Top 10 questions</mat-label>
-        <mat-chip-list #chipList aria-label="questions selection">
-            <mat-chip *ngFor="let questions of questionss" [selectable]="selectable" [removable]="removable"
-                (removed)="remove(questions)">
-                {{questions}}
-                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-            </mat-chip>
-        </mat-chip-list>
-        <mat-chip-list><input placeholder="New question..." #questionsInput [formControl]="questionsCtrl" [matAutocomplete]="auto"
-                [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                (matChipInputTokenEnd)="add($event)">
-        </mat-chip-list>
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-            <mat-option *ngFor="let questions of filteredquestionss | async" [value]="questions">
-                {{questions}}
-            </mat-option>
-        </mat-autocomplete>
-    </mat-form-field>
+            </style>
+
+            <table class="your-questions">
+                <tr>
+                    <div class="q-label">
+                        <mat-label>Your questions</mat-label>
+                    </div>
+
+                </tr>
+                <tr>
+                    <div class="user-added-questions">
+                        <mat-chip-list aria-label="selected questions" cdkDropList #userInputList="cdkDropList">
+
+                            <mat-chip class="user_added_question" *ngFor="let addedQuestion of userInputQuestions"    [removable]="removable"  (removed)="remove(questions)">
+                                {{addedQuestion}}
+                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                            </mat-chip>
+                            </mat-chip-list>
+                    </div>
+
+                </tr>
+            </table>
+
+
+
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1" class="input-questions">
+
+
+            <div class="user-input">
+                <textarea id="userInput" name="userInput" placeholder="Please enter your questions here..." #userInput (keyup.enter)="addUserQuestion(userInput.value)"></textarea>
+            </div>
+
+
+
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
 
     <div class="back-icon">
         <button mat-fab aria-label="back" matTooltip="Go back" (click)="back()">
@@ -42,8 +96,14 @@
     </div>
 
     <div class="submit-icon">
-        <button mat-fab aria-label="submit" matTooltip="Submit & Next" (click)="submit()"> 
+        <button mat-fab aria-label="submit" matTooltip="Submit & Next" (click)="submit()">
             <mat-icon> double_arrow</mat-icon>
+        </button>
+    </div>
+
+    <div class="add-icon">
+        <button mat-icon-button aria-label="add_question" matTooltip="Click to add Question" (click)="addUserQuestion(userInput.value)">
+            <mat-icon id="add_mat_icon"> navigate_next</mat-icon>
         </button>
     </div>
 

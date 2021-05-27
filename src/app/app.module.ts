@@ -55,6 +55,7 @@ import { MatchesComponent } from './matches/matches.component';
 import { BasicInfoComponent } from './basic-info/basic-info.component';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 import { JwtHelperService, JWT_OPTIONS    } from '@auth0/angular-jwt';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -112,6 +113,7 @@ import { JwtHelperService, JWT_OPTIONS    } from '@auth0/angular-jwt';
     MatTreeModule,
     MatNativeDateModule,
     HttpClientModule,
+    DragDropModule,
     MatPasswordStrengthModule,
     BackButtonDisableModule.forRoot()
   ],

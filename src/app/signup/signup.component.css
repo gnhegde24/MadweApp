@@ -1,87 +1,96 @@
-.my-form{
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+.my-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
 }
 
 .full-width {
-  width: 100%;
+    width: 100%;
 }
 
-.mat-card{
-  width: fit-content;
+.mat-card {
+    width: fit-content;
 }
 
-.mat-radio-button ~ .mat-radio-button {
-  margin-left: 16px;
+.mat-radio-button~.mat-radio-button {
+    margin-left: 16px;
 }
 
-.full-width-name{
-  display: inline-block;
-  width: 50%;
-  color: #fff;
+.full-width-name {
+    display: inline-block;
+    width: 50%;
+    color: #fff;
 }
 
-.signup-form{
-  margin: 0;
-  padding: 5px;
-  background: url("/../assets/madwe_home.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  min-height: 100vh;
+.signup-form {
+    margin: 0;
+    justify-content: center;
+    align-items: center;
 }
 
-.mat-card-title{
-  line-height: 48px;
-  margin: 24px 0;
-  letter-spacing: 2px;
-  text-align: center;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  width: 100%;
-  padding: 10px 0;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #fff;
-  background: transparent;
+.mat-card-title {
+    line-height: 48px;
+    margin: 24px 0;
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    font-size: 32px;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px 0;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
 }
 
 .signup-card {
-  width: 400px;
-  background: rgba(0,0,0,0.7);
-  border-radius: 10px;
-  padding: 0 24px 5px ;
-  box-shadow: 0 1px 20px 5px  rgba(255,255,255,0.5);
-  box-sizing: border-box;
+    height: 590px;
+    width: 400px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 0 24px 5px;
+    box-shadow: 0 1px 20px 5px rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
 }
 
-::ng-deep  .mat-form-field-label, .reln-section, .gender-section, .mat-datepicker-toggle{
-  color:white !important;
-  opacity: 0.9;
+::ng-deep .mat-form-field-label,
+.reln-section,
+.gender-section,
+.mat-datepicker-toggle {
+    color: white !important;
+    opacity: 0.9;
 }
 
-.mat-raised-button{
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
+.mat-raised-button {
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-::placeholder{
-  color:yellowgreen;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  opacity: 0.5;
-  font-size: small;
+::placeholder {
+    color: yellowgreen;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    opacity: 0.5;
+    font-size: small;
 }
 
-.mat-input-element{
-  color: white;
+.mat-input-element {
+    color: white;
 }
 
-.strength-section{
-  border-radius: 10px;
-  padding: 0 0 8px;
+.strength-section {
+    border-radius: 10px;
+    padding: 0 0 8px;
 }
+
+
+/*
+
+background: url("/../assets/madwe_home.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+
+  */

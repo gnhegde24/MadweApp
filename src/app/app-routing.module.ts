@@ -14,18 +14,12 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'signup',
-    component: SignupComponent
-  },
+ 
+  
   {
     path: 'introq',
-    component: IntoQuestionsComponent,
-    canActivate: [AuthGuard]
+    component: IntoQuestionsComponent
+    
   },
   {
     path: 'introi',
