@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { AuthenticationService } from './authentication.service';
 
-interface Profile{
+interface Profile {
   emailOrPhone: string;
   profileImageUrl: string;
 }
@@ -17,19 +17,23 @@ const apiUrl = 'http://localhost:8080/api/madwe/';
 })
 export class ProfileService {
 
-  currentProfile: Profile = 
-    {emailOrPhone: localStorage.getItem("user")+"", 
-    profileImageUrl: ""}
+  currentProfile: Profile =
+    {
+      emailOrPhone: localStorage.getItem("user") + "",
+      profileImageUrl: ""
+    }
+
+
   ;
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
   uploadImage(data: any): Observable<any> {
-    
+
     //this.currentProfile.id = JSON.parse(localStorage.getItem("token"));
-    
-    console.log("EmailIdorPhone is: "+localStorage.getItem("user"));
-    this.currentProfile.emailOrPhone = localStorage.getItem("user")+"";
+
+    console.log("EmailIdorPhone is: " + localStorage.getItem("user"));
+    this.currentProfile.emailOrPhone = localStorage.getItem("user") + "";
     this.currentProfile.profileImageUrl = data.profileImageUrl;
     return this.http.post<any>(apiUrl + 'upload', data)
       .pipe(
@@ -55,4 +59,17 @@ export class ProfileService {
   }
 
 
+
 }
+
+/*
+ this.imageModel.file = event.target.files[0];
+
+      const img = new Image();
+      img.src = reader.result as string;
+      img.onload = () => {
+        const height = img.naturalHeight;
+        const width = img.naturalWidth;
+        console.log('Width and Height', width, height);
+      };
+*/

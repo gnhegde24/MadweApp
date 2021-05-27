@@ -1,12 +1,13 @@
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {Component, ElementRef, ViewChild} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
-import {MatChipInputEvent} from '@angular/material/chips';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -15,39 +16,52 @@ import { Router } from '@angular/router';
   styleUrls: ['./into-questions.component.css']
 })
 export class IntoQuestionsComponent {
+  @ViewChild('userInput') userInputQuestion;
   visible = true;
   selectable = true;
   removable = true;
-  separatorKeysCodes: number[] = [ENTER, COMMA];
+  readonly separatorKeysCodes = [ENTER] as const;
   questionsCtrl = new FormControl();
   filteredquestionss: Observable<string[]>;
-  questionss: string[] =  [
+  questionss: string[] = [
     'What are your goals in the relationship?',
-    'What is your happiest memory?',
     'Given the choice of anyone in the world, whom would you want as a dinner guest?',
-    'How do you want to be remembered?',
-    'Do you have any habits you want to change?',
-    'What are your thoughts on having a family?',
-    'What is the biggest lesson you’ve learned from previous relationships?',
-   ];
-  suggestions: string[] = ['suggestion from db1', 'suggestion from db2'];
+    'Your happiest memory?', 'How do you want to be remembered?',
+    'Biggest lesson you’ve learned from previous relationships?',
+    'How many past partners have you had?', 'Your role model in life?',
+    'What goals do you have for us?',
+    'What are your goals in the relationship?',
+    'Given the choice of anyone in the world, whom would you want as a dinner guest?',
+    'Your happiest memory?', 'How do you want to be remembered?',
+    'Biggest lesson you’ve learned from previous relationships?',
+    'What goals do you have for us?',
+    'What are your goals in the relationship?',
+    'Given the choice of anyone in the world, whom would you want as a dinner guest?',
+    'Your happiest memory?', 'How do you want to be remembered?',
+    'Biggest lesson you’ve learned from previous relationships?'
+  ];
+  userInputQuestions: string[] =[];
+  userInputQ: string;
+  suggestions: string[] = ['What are your thoughts on having a family?',
+    'Do you have any habits you want to change?'];
 
   @ViewChild('questionsInput') questionsInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   constructor(private router: Router) {
     this.filteredquestionss = this.questionsCtrl.valueChanges.pipe(
-        startWith(null),
-        map((questions: string | null) => questions ? this._filter(questions) : this.suggestions.slice()));
+      startWith(null),
+      map((questions: string | null) => questions ? this._filter(questions) : this.suggestions.slice()));
   }
 
   add(event: MatChipInputEvent): void {
+    console.log(event);
     const input = event.input;
     const value = event.value;
 
     // Add our questions
     if ((value || '').trim()) {
-      this.questionss.push(value.trim());
+      this.userInputQuestions.push(value.trim());
     }
 
     // Reset the input value
@@ -79,15 +93,24 @@ export class IntoQuestionsComponent {
   }
 
 
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.questionss, event.previousIndex, event.currentIndex);
+  addToQuestions(userSelectedQuestion) {
+    this.userInputQuestions.unshift(userSelectedQuestion);
+    const index: number = this.questionss.indexOf(userSelectedQuestion);
+    this.questionss.splice(index, 1);
   }
 
-  back(){
+  
+  back() {
     this.router.navigate(['introi']);
   }
 
-  submit(){
+  submit() {
     this.router.navigate(['basicinfo']);
+  }
+
+  addUserQuestion(userInput: string){
+    console.log("user innput is : "+userInput)
+    this.userInputQuestions.unshift(userInput.trim());
+    this.userInputQuestion.nativeElement.value='';
   }
 }

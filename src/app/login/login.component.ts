@@ -3,7 +3,7 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, Validators, Ng
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../service/authentication.service';
 import { ErrorStateMatcher } from '@angular/material/core';
-
+import {MatDialogRef} from '@angular/material/dialog';
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -28,7 +28,8 @@ isLoadingResults = false;
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthenticationService) { }
+    private authService: AuthenticationService,
+    private dialogRef: MatDialogRef<LoginComponent>) { }
 
   async ngOnInit() {
 
@@ -59,6 +60,7 @@ isLoadingResults = false;
       }, (err) => {
         console.log(err);
       });
+      this.dialogRef.close();
   }
 
   cancel() {

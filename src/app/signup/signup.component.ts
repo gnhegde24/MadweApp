@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { AuthenticationService } from '../service/authentication.service';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
+import {MatDialogRef} from '@angular/material/dialog';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -23,7 +24,7 @@ export class SignupComponent{
   isSubmitted = false;
   pattern = new RegExp(/^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z]).{8}/);
   matcher = new MyErrorStateMatcher();
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthenticationService) { 
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthenticationService, private dialogRef: MatDialogRef<SignupComponent>) { 
     
   }
 
@@ -51,12 +52,15 @@ export class SignupComponent{
     this.isSubmitted = true;
     this.authService.register(form).subscribe(res => {
       console.log(res);
-      if (res.message == "SUCCESS") {
+      if (res.token) {
+        localStorage.setItem('token', res.token);
+        localStorage.setItem("user",JSON.stringify(res.user));
         this.router.navigate(['introi']);
       }
     }, (err) => {
       console.log(err);
     });
+    this.dialogRef.close();
   }
 
   cancel() {

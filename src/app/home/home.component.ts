@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import {LoginComponent} from '../login/login.component';
+import {SignupComponent} from '../signup/signup.component';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +11,28 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private router: Router) { }
+  constructor( private router: Router, private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  logIn(){
-    this.router.navigate(['login']);
+  openLogInDialoge(){
+
+    const dialogRef = this.dialog.open(LoginComponent, {
+      position: {
+        top: '100px',
+        left: '450px'
+      }
+    });
+   
   }
-  signIn(){
-    this.router.navigate(['signup']);
+  openSignUpDialoge(){
+    this.dialog.open(SignupComponent, {
+      position: {
+        top: '0px',
+        left: '450px'
+      }
+    });
   }
 
 }

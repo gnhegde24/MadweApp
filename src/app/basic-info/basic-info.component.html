@@ -45,7 +45,7 @@
             <td class="profile-details">
                 <tr>
                     <label class="circle" matTooltip="Click on to choose a photo" [ngStyle]="{'background-color':  circleColor }">
-                        <input type="file"  (change)="onFileChange($event)" hidden/>
+                        <input type="file"  (change)="onFileChange($event)" hidden />
                         <img *ngIf="!showInitials" src={{photoUrl}}>
                         <div *ngIf="showInitials" class="circle">
                             {{initials}}
@@ -119,13 +119,13 @@
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Valid Id Proof</mat-label>
 
-                        <mat-select [formControl]="idProofControl">
+                        <mat-select [formControl]="idProofControl" matTooltip="Select ID Proof to Upload">
                             <label>
-                                <input type="file"  (change)="onProofSubmit($event)" hidden/>
-                            <mat-option *ngFor="let proof of proofs" [value]="proof">
-                                {{proof}}
+                                <input type="file"  (change)="onProofSubmit($event)"  hidden />
+                                <mat-option *ngFor="let proof of proofs" [value]="proof">
+                                    {{proof}}
 
-                            </mat-option>
+                                </mat-option>
                             </label>
 
                         </mat-select>
@@ -147,7 +147,7 @@
     </div>
 
     <div class="submit-icon">
-        <button mat-fab aria-label="submit" matTooltip="Submit & Next" (click)="submit()"> 
+        <button mat-fab aria-label="submit" matTooltip="Submit & Next" (click)="submit()">
             <mat-icon> double_arrow</mat-icon>
         </button>
     </div>
