@@ -57,6 +57,8 @@ import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 import { JwtHelperService, JWT_OPTIONS    } from '@auth0/angular-jwt';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { ProfileMatchesComponent } from './profile-matches/profile-matches.component';
+import { ProfileChatHeadComponent } from './profile-chat-head/profile-chat-head.component';
+import { ProfileCardComponent } from './profile-card/profile-card.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import { ProfileMatchesComponent } from './profile-matches/profile-matches.compo
     ContentFooterComponent,
     ProfileDashboardComponent,
     BasicInfoComponent,
-    ProfileMatchesComponent
+    ProfileMatchesComponent,
+    ProfileChatHeadComponent,
+    ProfileCardComponent
   ],
   imports: [
     BrowserModule,

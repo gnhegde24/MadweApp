@@ -1,0 +1,53 @@
+<div class="dashboard">
+    <!--profile block-->
+    <div class="profile-block">
+        <div>
+            <div>
+                <label matTooltip="Click on to choose a cover photo">
+                    <input type="file"  (change)="onCoverPhotoUpdate($event)" hidden />
+                    <img class="cover-photo" *ngIf="isCoverPhoto" src="{{coverPhotoUrl}}" alt="">
+                    <img class="cover-photo" *ngIf="!isCoverPhoto"
+                        src="https://egyptianstreets.com/wp-content/uploads/2019/04/0_Liverpool-v-Chelsea-Premier-League-Anfield.v1.jpg">
+                </label>
+            </div>
+        </div>
+        <div class="profile-details">
+            <div>
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+                </style>
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+                </style>
+            </div>
+            <div class="profile-pic">
+
+
+                <label class="profile-photo" matTooltip="Click on to choose a profile photo" [ngStyle]="{'background-color':  circleColor }">
+                    <input type="file"  (change)="onProfileChange($event)" hidden />
+                    <img class="profile-img" *ngIf="!showInitials" src={{photoUrl}}>
+                    <div *ngIf="showInitials">
+                        {{initials}}
+                    </div>
+                </label>
+            </div>
+            <div class="profile-id">
+                <span class="username">Praveen Hegde</span>
+                <span class="userid">@proHegde</span>
+            </div>
+
+            <div class="assets">
+                <div class="profile-following">
+                    <span class="name">Following</span>
+                    <span class="handle">10</span>
+                </div>
+
+                <div class="profile-followers">
+                    <span class="name">Followers</span>
+                    <span class="handle">103K</span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
