@@ -3,10 +3,10 @@ import { ShowInitialsService } from '../service/show-initials.service';
 
 @Component({
   selector: 'app-matches',
-  templateUrl: './matches.component.html',
-  styleUrls: ['./matches.component.css']
+  templateUrl: './profile-dashboard.component.html',
+  styleUrls: ['./profile-dashboard.component.css']
 })
-export class MatchesComponent implements OnInit {
+export class ProfileDashboardComponent implements OnInit {
 
   isCoverPhoto: boolean = false;
   initials: string;
@@ -33,7 +33,10 @@ export class MatchesComponent implements OnInit {
     "https://randomuser.me/api/portraits/men/39.jpg",
     "https://randomuser.me/api/portraits/men/59.jpg",
     "https://randomuser.me/api/portraits/women/39.jpg",
-    "https://randomuser.me/api/portraits/women/79.jpg"
+    "https://randomuser.me/api/portraits/women/79.jpg",
+    "https://randomuser.me/api/portraits/women/25.jpg",
+    "https://randomuser.me/api/portraits/women/26.jpg",
+    "https://randomuser.me/api/portraits/women/25.jpg"
   ]
 
   constructor(private showInitialsService: ShowInitialsService) { }

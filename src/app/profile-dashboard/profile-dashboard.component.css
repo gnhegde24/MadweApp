@@ -1,8 +1,10 @@
 .dashboard {
+    position: relative;
     margin: 80px 0 10px 20px;
     padding: 0;
     height: auto;
     width: 400px;
+    float: left;
 }
 
 .profile-block,
@@ -14,7 +16,7 @@
 .cover-photo {
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-    height: 180px;
+    height: 200px;
     width: 400px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,8 +26,8 @@
 .profile-photo {
     border: 2px solid #fff;
     position: absolute;
-    top: 200px;
-    left: 20px;
+    top: 150px;
+    left: 5px;
     font-size: 50px;
     font-family: cursive;
     letter-spacing: 0.3px;
@@ -39,7 +41,7 @@
 
 .profile-details {
     margin-top: -5px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .profile-img {
@@ -124,6 +126,10 @@
     border: none;
     padding: 0px;
     border-radius: 100%;
+}
+
+.profile-page {
+    display: flex;
 }
 
 

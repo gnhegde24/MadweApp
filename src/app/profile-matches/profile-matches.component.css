@@ -1,0 +1,99 @@
+.example-card {
+    top: 80px;
+    left: 50px;
+    width: 500px;
+    height: auto;
+    min-height: 400px;
+    overflow-y: scroll;
+    border-radius: 25px;
+    box-shadow: 0 1px 20px 5px black;
+}
+
+.example-card::-webkit-scrollbar {
+    display: none;
+}
+
+.material-icons-two-tone {
+    font-size: 50px;
+    display: flex;
+}
+
+.refresh-button {
+    left: 250px;
+    font-size: 50px;
+    border: none;
+    outline: none;
+    color: black;
+    cursor: pointer;
+}
+
+.follow-button,
+.block-button {
+    border-radius: 5px;
+    background-color: yellowgreen;
+}
+
+.photo-row {
+    display: inline;
+    float: right;
+}
+
+.example-header-image {
+    background-image: url('http://t3.gstatic.com/images?q=tbn:ANd9GcRFwQcvntDypuiAjCT5vbXp8lBNdhbylkR_DRFqamaEG_vOjvF2');
+    background-size: cover;
+}
+
+.list-inline li {
+    padding-left: 15px;
+    display: inline;
+    float: left;
+}
+
+.list-inline {
+    padding-left: 5px;
+}
+
+.profile-matching-card {
+    width: 100%;
+}
+
+.full-width,
+.verify {
+    padding-left: 80px;
+}
+
+.matching-image {
+    width: 100px;
+    height: 100px;
+    padding: 2px 2px 0 0;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.name {
+    font-family: 'Pattaya', sans-serif;
+    font-size: medium;
+}
+
+.verify-icon {
+    display: inline;
+    vertical-align: -2px;
+    font-size: large;
+    padding-right: 2px;
+    color: lawngreen;
+}
+
+.sub-name {
+    font-family: 'Noto Sans', sans-serif;
+    color: indigo;
+}
+
+
+/*
+.matching-image {
+    width: 150px;
+    height: 150px;
+    padding: 2px;
+    display: inline;
+}
+*/

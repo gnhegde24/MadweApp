@@ -17,6 +17,15 @@
     padding: 0;
 }
 
+.address2-width {
+    width: 60%;
+    margin-right: 30px;
+}
+
+.id-proof-width {
+    width: 30%;
+}
+
 .mat-input-element,
 .mat-select,
 .mat-option {
@@ -26,7 +35,7 @@
 }
 
 .title {
-    margin: 24px 0;
+    margin: 20px 0;
     letter-spacing: 2px;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
