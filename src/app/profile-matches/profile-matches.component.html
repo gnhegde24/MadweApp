@@ -1,0 +1,110 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+            </style>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+            </style>
+
+        </div>
+        <mat-card-title class="name">Shraddha Kapoor</mat-card-title>
+        <mat-card-subtitle class="sub-name">@ShraKapoor</mat-card-subtitle>
+        <div class="refresh">
+            <button mat-icon-button class="refresh-button" matTooltip="Refresh">
+                <mat-icon class="material-icons-two-tone">find_replace</mat-icon>
+            </button>
+        </div>
+    </mat-card-header>
+
+    <mat-card-content>
+        <table class="profile-matching-card" cellspacing="0" style="width:100%">
+            <td>
+                <tr>
+                    <mat-label class="name">Interests</mat-label>
+                    <p class="sub-name">Movies, Games, Cooking</p>
+                </tr>
+
+                <tr>
+                    <td>
+                        <mat-label class="name">Height</mat-label>
+                        <p class="sub-name">168cm</p>
+                    </td>
+                    <td>
+                        <mat-label class="name">Weight</mat-label>
+                        <p class="sub-name">58kg</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <mat-label class="name">Religion</mat-label>
+                        <p class="sub-name">Hindu, Brahmin</p>
+                    </td>
+                    <td>
+                        <mat-label class="name">Mother tongue</mat-label>
+                        <p class="sub-name">Marathi</p>
+                    </td>
+                    <td class="full-width">
+                        <mat-label class="name">Qualification</mat-label>
+                        <p class="sub-name">Artist</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-label class="name">City</mat-label>
+                        <p class="sub-name">Mumbai</p>
+                    </td>
+                    <td>
+                        <mat-label class="name">Age</mat-label>
+                        <p class="sub-name">28yrs</p>
+                    </td>
+                    <td class="verify">
+                        <mat-label class="name">
+                            <mat-icon class="verify-icon">verified</mat-icon>Verified</mat-label>
+                    </td>
+                </tr>
+                <tr class="photo-row">
+
+
+                    <div class="action-buttons">
+                        <mat-card-actions>
+                            <button mat-button class="follow-button"><mat-icon>thumb_up</mat-icon>Follow</button>
+                            <button mat-button class="block-button"><mat-icon>block</mat-icon>Block</button>
+                        </mat-card-actions>
+                    </div>
+
+                </tr>
+            </td>
+
+
+        </table>
+        <div class="photo-details">
+            <td>
+                <div class="photo-label">
+                    <mat-label class="name">Photos</mat-label>
+                </div>
+            </td>
+            <ul class="list-inline">
+                <li *ngFor="let image of matchingPhotos">
+                    <div>
+                        <img class="matching-image" src={{image}} alt="">
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+
+
+
+
+
+
+    </mat-card-content>
+
+
+</mat-card>
