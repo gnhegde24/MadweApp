@@ -1,5 +1,6 @@
 <header class="header" *ngIf="visible()">
     <mat-toolbar>
+
         <div class="menu-button">
             <button mat-raised-button (click)="onToggleSidenav()">
             <span class="material-icons">list</span>
@@ -9,11 +10,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
         <span class="my-tittle"><i>Madwe</i></span>
         <div class="logout-button">
-            <button mat-raised-button (click)="logout()"> <span class="material-icons"> roofing </span> LogOut</button>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap');
+            </style>
+            <button mat-raised-button matTooltip="LogOut!" matTooltipPosition="above" (click)="openLogoutConfirmationDialog()"> <span class="material-icons"> logout </span> </button>
         </div>
     </mat-toolbar>
 
-    
+
 </header>
 
 <!--  (click)="snav.toggle()"

@@ -1,200 +1,75 @@
-<div class = "introi">
-    <mat-grid-list cols="3" rowHeight="175px">
+<div class="interests-home">
+    <!-- This is interests title-->
+    <!--  <div class="interests-title">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Sancreek&display=swap');
+        </style>
+        <label>Interests</label>
+    </div> -->
 
-        <!-- Politics Section -->
-        <mat-grid-tile>
-            <mat-card>
-                <mat-card-title>Are you interested in Politics
-                    <span class="material-icons"> account_balance </span>
-                    ?
-                </mat-card-title>
-                <section class="politics-section">
-                    <mat-radio-group [(ngModel)]="politics">
-                        <mat-radio-button color="primary" class="example-margin" value="Yes">Ohh, yeah!
-                            <span class="material-icons"> mood </span>
-                        </mat-radio-button>
-                        <mat-radio-button color="primary" class="example-margin" value="No">Nope
-                            <span class="material-icons"> mood_bad </span>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </section>
-            </mat-card>
-        </mat-grid-tile>
-    
-    
-    
-        <!-- Sports Section -->
-        <mat-grid-tile>
-            <mat-card>
-                <mat-card-title>Are you interested in Sports
-                    <span class="material-icons"> sports_handball </span>
-                    ?
-                </mat-card-title>
-                <section class="sports-section">
-                    <mat-radio-group [(ngModel)]="sports">
-                        <mat-radio-button color="primary" class="example-margin" value="Yes">Ohh, yeah!
-                            <span class="material-icons"> mood </span>
-                        </mat-radio-button>
-                        <mat-radio-button color="primary" class="example-margin" value="No">Nope
-                            <span class="material-icons"> mood_bad </span>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </section>
-            </mat-card>
-        </mat-grid-tile>
-    
-        <!-- Gaming Section -->
-        <mat-grid-tile>
-            <mat-card>
-                <mat-card-title>Are you interested in Gaming
-                    <span class="material-icons"> videogame_asset </span>
-                    ?
-                </mat-card-title>
-                <section class="gaming-section">
-                    <mat-radio-group [(ngModel)]="gaming">
-                        <mat-radio-button color="primary"  class="example-margin" value="Yes">Ohh, yeah!
-                            <span class="material-icons"> mood </span>
-                        </mat-radio-button>
-                        <mat-radio-button  color="primary" class="example-margin" value="No">Nope
-                            <span class="material-icons"> mood_bad </span>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </section>
-            </mat-card>
-        </mat-grid-tile>
-    
-    
-        <!-- Traveling Section -->
-        <mat-grid-tile>
-            <mat-card>
-                <mat-card-title>Do you love to travel
-                    <span class="material-icons"> emoji_transportation </span>
-                    ?
-                </mat-card-title>
-                <section class="travel-section">
-                    <mat-radio-group [(ngModel)]="travel">
-                        <mat-radio-button  color="primary" class="example-margin" value="Yes">Ohh, yeah!
-                            <span class="material-icons"> mood </span>
-                        </mat-radio-button>
-                        <mat-radio-button  color="primary" class="example-margin" value="No">Nope
-                            <span class="material-icons"> mood_bad </span>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </section>
-            </mat-card>
-        </mat-grid-tile>
-    
-    
-    
-        <!-- Arts Section -->
-        <mat-grid-tile>
-            <mat-card>
-                <mat-card-title>Are you interested in Arts
-                    <span class="material-icons"> color_lens </span>
-                    <span class="material-icons"> brush </span>
-                    ?
-                </mat-card-title>
-                <section class="arts-section">
-                    <mat-radio-group [(ngModel)]="arts">
-                        <mat-radio-button  color="primary" class="example-margin" value="Yes">Ohh, yeah!
-                            <span class="material-icons"> mood </span>
-                        </mat-radio-button>
-                        <mat-radio-button  color="primary" class="example-margin" value="No">Nope
-                            <span class="material-icons"> mood_bad </span>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </section>
-            </mat-card>
-        </mat-grid-tile>
-    
-    
-    
-        <!-- Pet Care Section -->
-        <mat-grid-tile>
-            <mat-card>
-                <mat-card-title>Are you interested in Pet Care
-                    <span class="material-icons"> pets </span>
-                    ?
-                </mat-card-title>
-                <section class="petCare-section">
-                    <mat-radio-group [(ngModel)]="petCare">
-                        <mat-radio-button  color="primary" class="example-margin" value="Yes">Ohh, yeah!
-                            <span class="material-icons"> mood </span>
-                        </mat-radio-button>
-                        <mat-radio-button  color="primary" class="example-margin" value="No">Nope
-                            <span class="material-icons"> mood_bad </span>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </section>
-            </mat-card>
-        </mat-grid-tile>
-    
-        <!-- Music Section -->
-        <mat-grid-tile>
-            <mat-card>
-                <mat-card-title>Are you interested in Music
-                    <span class="material-icons"> speaker_group </span>
-                    ?
-                </mat-card-title>
-                <section class="music-section">
-                    <mat-radio-group [(ngModel)]="music">
-                        <mat-radio-button  color="primary" class="example-margin" value="Yes">Ohh, yeah!
-                            <span class="material-icons"> mood </span>
-                        </mat-radio-button>
-                        <mat-radio-button  color="primary" class="example-margin" value="No">Nope
-                            <span class="material-icons"> mood_bad </span>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </section>
-            </mat-card>
-        </mat-grid-tile>
-    
-        <!-- Cooking Care Section -->
-        <mat-grid-tile>
-            <mat-card>
-                <mat-card-title>Do you like cooking
-                    <span class="material-icons"> blender </span>
-                    <span class="material-icons"> restaurant_menu </span>
-                    ?
-                </mat-card-title>
-                <section class="cooking-section">
-                    <mat-radio-group [(ngModel)]="cooking">
-                        <mat-radio-button  color="primary" class="example-margin" value="Yes">Ohh, yeah!
-                            <span class="material-icons"> mood </span>
-                        </mat-radio-button>
-                        <mat-radio-button  color="primary" class="example-margin" value="No">Nope
-                            <span class="material-icons"> mood_bad </span>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </section>
-            </mat-card>
-        </mat-grid-tile>
-    
-        <!-- Reading Care Section -->
-        <mat-grid-tile>
-            <mat-card>
-                <mat-card-title>Do you enjoy reading books
-                    <span class="material-icons"> auto_stories </span>
-                    ?
-                </mat-card-title>
-                <section class="reading-section">
-                    <mat-radio-group [(ngModel)]="reading">
-                        <mat-radio-button  color="primary" class="example-margin" value="Yes">Ohh, yeah!
-                            <span class="material-icons"> mood </span>
-                        </mat-radio-button>
-                        <mat-radio-button  color="primary" class="example-margin" value="No">Nope
-                            <span class="material-icons"> mood_bad </span>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </section>
-            </mat-card>
-        </mat-grid-tile>
-    
-        <div class="submit-icon">
-            <button mat-fab aria-label="submit" matTooltip="Submit & Next" (click)="submit()"> 
-                <mat-icon> double_arrow</mat-icon>
-            </button>
-        </div>
-    
-    </mat-grid-list>
+    <!--This is interests options card-->
+    <div class="interests-options">
+        <mat-card class="interests-card">
+            <section class="interests-section" [formGroup]="interests">
+                <div class="interest-heading">
+                    <style>
+                        @import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@1&display=swap');
+                    </style>
+                    Choose Your Interests...</div>
+                <div class="interests-inputs">
+                    <style>
+                        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+                    </style>
+                    <p>
+                        <mat-checkbox formControlName="politics">Politics</mat-checkbox>
+                        <mat-icon>account_balance</mat-icon>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="sports">Sports</mat-checkbox>
+                        <mat-icon>sports_handball</mat-icon>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="gaming">Gaming</mat-checkbox>
+                        <mat-icon>videogame_asset</mat-icon>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="travel">Travelling</mat-checkbox>
+                        <mat-icon>emoji_transportation</mat-icon>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="arts">Arts</mat-checkbox>
+                        <mat-icon>color_lens</mat-icon>
+                        <mat-icon>brush</mat-icon>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="petCare">Pet Care</mat-checkbox>
+                        <mat-icon>pets</mat-icon>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="music">Music</mat-checkbox>
+                        <mat-icon>speaker_group</mat-icon>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="cooking">Cooking</mat-checkbox>
+                        <mat-icon>blender</mat-icon>
+                        <mat-icon>restaurant_menu</mat-icon>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="reading">Reading</mat-checkbox>
+                        <mat-icon>auto_stories</mat-icon>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="movies">Movies</mat-checkbox>
+                        <mat-icon>live_tv</mat-icon>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="others">Others</mat-checkbox>
+                    </p>
+                </div>
+            </section>
+            <mat-form-field *ngIf="interests.get('others').value" class="user-input">
+                <input matInput placeholder="Ex. Photography...">
+            </mat-form-field>
+        </mat-card>
+    </div>
 </div>

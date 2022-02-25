@@ -1,7 +1,15 @@
 .footer {
-    position: sticky;
-    left: 0;
-    bottom: 0;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
     width: 100%;
     text-align: center;
+    display: flex;
 }
+
+
+/*
+<footer class="footer" *ngIf="visible()">
+    <p>&copy; All rights reserved for <i>Madwe App</i> 2021</p>
+</footer>
+*/

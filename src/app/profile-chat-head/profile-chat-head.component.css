@@ -1,7 +1,41 @@
 .follower-image {
     border-radius: 100%;
+    border: 0;
+    padding: 6px;
     width: 60px;
-    padding: 10px 2px 0 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rotate {
+    position: relative;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rotate:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 100%;
+    border: 4px dashed grey;
+    animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
 }
 
 .list-inline li {
@@ -11,7 +45,7 @@
 
 .list-inline {
     padding-top: 8px;
-    padding-left: 2px;
+    padding-left: 1px;
 }
 
 .profile-icon {
@@ -36,7 +70,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin: 500px 0 10px 20px;
-    height: 120px;
+    height: 115px;
     min-width: 300px;
     position: absolute;
     box-shadow: 0 1px 20px 5px black;
