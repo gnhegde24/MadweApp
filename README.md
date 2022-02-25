@@ -1,8 +1,1 @@
-![Upload success message](https://user-images.githubusercontent.com/29662068/119316663-da627780-bc94-11eb-84fa-0d2fd145f2fd.JPG)
-![BasicInfo](https://user-images.githubusercontent.com/29662068/119316670-dc2c3b00-bc94-11eb-8852-ebd80cc4dc01.JPG)
-![Home](https://user-images.githubusercontent.com/29662068/119316675-dcc4d180-bc94-11eb-92ec-b59c5d3ce143.JPG)
-![Interests](https://user-images.githubusercontent.com/29662068/119316678-dd5d6800-bc94-11eb-8178-c306110194b4.JPG)
-![Login](https://user-images.githubusercontent.com/29662068/119316682-ddf5fe80-bc94-11eb-880d-dc775d342975.JPG)
-![NavBar](https://user-images.githubusercontent.com/29662068/119316685-ddf5fe80-bc94-11eb-8aba-325c928626ed.JPG)
-![Questions](https://user-images.githubusercontent.com/29662068/119316687-df272b80-bc94-11eb-836e-a4117aff5b84.JPG)
-![Signin](https://user-images.githubusercontent.com/29662068/119316690-dfbfc200-bc94-11eb-8e2b-9991bba48966.JPG)
+Will update this shortly ... 
