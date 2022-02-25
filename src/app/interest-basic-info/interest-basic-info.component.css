@@ -1,0 +1,16 @@
+.submit-icon {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.mat-flat-button.mat-accent,
+.mat-raised-button.mat-accent,
+.mat-fab.mat-accent,
+.mat-mini-fab.mat-accent {
+    background-color: lightsteelblue;
+}
+
+.basic-info-interests {
+    display: flex;
+}

@@ -1,0 +1,23 @@
+<div class="logout-confirmation-dialog">
+    <div class="confirmation-content">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&display=swap');
+        </style>
+        <div class="dialog-content">
+            Are you sure you want to LogOut ?
+        </div>
+    </div>
+
+    <div class="confirmation-buttons">
+        <mat-dialog-actions align="center">
+            <button mat-button [style.background-color]="'greenyellow'" matTooltip="LogOut!" matTooltipPosition="below" [mat-dialog-close]="true" cdkFocusInitial><span class="material-icons-outlined">
+                    logout
+                </span>
+            </button>
+            <button mat-button [style.background-color]="'silver'" mat-dialog-close>Cancel</button>
+            <!-- <span class="material-icons-outlined">
+                close
+                </span> -->
+        </mat-dialog-actions>
+    </div>
+</div>

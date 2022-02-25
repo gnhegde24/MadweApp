@@ -5,7 +5,9 @@ import { ReligiousGroups } from '../model/ReligiousGroups';
 import { Religion } from '../model/Religion';
 import { ProfileService } from '../service/profile.service';
 import { ShowInitialsService } from '../service/show-initials.service';
-import { MatDialog } from '@angular/material/dialog';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ImageCropperModule, ImageTransform ,  ImageCroppedEvent,  Dimensions} from 'ngx-image-cropper';
+
 
 @Component({
   selector: 'app-basic-info',
@@ -15,11 +17,11 @@ import { MatDialog } from '@angular/material/dialog';
 export class BasicInfoComponent implements OnInit {
 
 
-
+ 
   basicInfoForm: FormGroup;
   isIdProofDisabled: boolean = false;
   name: string;
-
+  userName:boolean=false;
   idProofModel: any = {};
   religionControl = new FormControl();
   languageControl = new FormControl();
@@ -28,9 +30,9 @@ export class BasicInfoComponent implements OnInit {
   initials: string;
   circleColor: string;
   showInitials = true;
-
   message: string;
-  photoUrl: any = {};
+  photoUrl: any ={};
+  croppedImage: any = '';
   imagePath: string;
   imageModel: any = {};
   private colors = [
@@ -88,26 +90,29 @@ export class BasicInfoComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit(): void {
-
     if (this.showInitials) {
-      this.initials = this.showInitialsService.createInititals();
+      // this.initials = this.showInitialsService.createInititals();
+      this.initials="GH";
       const randomIndex = Math.floor(Math.random() * Math.floor(this.colors.length));
       this.circleColor = this.colors[randomIndex];
     }
 
     this.basicInfoForm = this.formBuilder.group({
+      checked: false,
+      firstname: [null, Validators.required],
+      lastname: [null, Validators.required],
       height: [null, Validators.required],
-      heightParam: [null, Validators.required]
+      weight: [null, Validators.required],
+      address: [null, Validators.required],
+      city: [null, Validators.required],
+      qualification: [null, Validators.required],
+      id: [null, Validators.required],
+      state: [null, Validators.required],
+      pin: [null, Validators.required],
     });
   }
 
-  back() {
-    this.router.navigate(['introq']);
-  }
-
-  submit() {
-    this.router.navigate(['matches']);
-  }
+ 
 
   onSubmit(form: NgForm) {
 
@@ -128,6 +133,7 @@ export class BasicInfoComponent implements OnInit {
     let image: any = reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
       this.photoUrl = reader.result;
+      var size = ((files[0].size/(1024*1024)) > 1)? (files[0].size/(1024*1024)) + ' mB' : (files[0].size/		1024)+' kB';
       this.imageModel.file = event.target.files[0];
 
       const img = new Image();
@@ -160,24 +166,123 @@ export class BasicInfoComponent implements OnInit {
     this.idProofModel.file = event.target.files[0];
     this.isIdProofDisabled = true;
     if (event.target.files.length == 1) {
-      this.dialog.open(DialogElementsExampleDialog);
+      //this.dialog.open(DialogElementsExampleDialog);
     }
 
 
 
   }
 
+  onImageUpload(event){
+    //this.profileImageComp.fileChangeEvent(event);
+    //this.profileImageComp.imageCropped(event);
+    console.log("opening dialog");
+   
+    //const dialogRef = this.dialog.open(ProfileImageCropperDialog, {
+     /// data: {croppedImage: this.photoUrl}
+    //});
+    console.log("open dialog is called...")
+    //dialogRef.afterClosed().subscribe(result => {
+    //  console.log("Dialog result:");
+    //  console.log(result+"");
+  //  })
+   // this.showInitials = false;
+    
+
+  }
+
+
+  checkName(isChecked: boolean){
+    if(isChecked){
+      var retrievedObject = JSON.parse(localStorage.getItem('user'));
+      this.basicInfoForm.controls['firstname'].setValue(retrievedObject.firstName+"");
+      this.basicInfoForm.controls['lastname'].setValue(retrievedObject.lastName+"");
+      this.basicInfoForm.controls['firstname'].disable();
+      this.basicInfoForm.controls['lastname'].disable();
+      this.basicInfoForm.controls['id'].setValue((retrievedObject.firstName+"").substring(0,3)+retrievedObject.lastName);
+    }
+    else {
+      this.basicInfoForm.controls['firstname'].reset();
+      this.basicInfoForm.controls['lastname'].reset();
+      this.basicInfoForm.controls['firstname'].enable();
+      this.basicInfoForm.controls['lastname'].enable();
+      this.basicInfoForm.controls['id'].reset();
+    }
+
+    }
+
 
 }
 
-export interface DialogData {
-  dialog: '';
+export class DialogData {
+  imageChangedEvent: any = '';
+    
+
 }
 
+/*
 @Component({
-  selector: 'dialog-elements-example-dialog',
-  template: '<div style="font-family:cursive;font-weight: bolder;font-size: 17px;" mat-dialog-content>Id Proof Uploaded Successfully.</div>',
+  selector: 'profile-image-cropper-dialog',
+  templateUrl: 'profile-image-cropper-dialog.html',
 
 })
-export class DialogElementsExampleDialog { }
+export class ProfileImageCropperDialog { 
 
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+  // canvasRotation = 0;
+    rotation = 0;
+    scale = 1;
+    showCropper = false;
+    containWithinAspectRatio = false;
+    transform: ImageTransform = {};
+  constructor(
+    public dialogRef: MatDialogRef<ProfileImageCropperDialog>) {}
+
+  onImageUpload(): void {
+    this.dialogRef.close();
+  }
+
+  fileChangeEvent(event: any): void {
+            this.imageChangedEvent = event;
+        }
+        imageCropped(event: ImageCroppedEvent) {
+            this.croppedImage = event.base64;
+        }
+        imageLoaded() {
+            this.showCropper = true;
+            console.log('Image loaded');
+        }
+        cropperReady(sourceImageDimensions: Dimensions) {
+            console.log('Cropper ready', sourceImageDimensions);
+        }
+        loadImageFailed() {
+            console.log('Load failed');
+        }
+        zoomOut() {
+            this.scale -= .1;
+            this.transform = {
+                ...this.transform,
+                scale: this.scale
+            };
+        }
+        zoomIn() {
+            this.scale += .1;
+            this.transform = {
+                ...this.transform,
+                scale: this.scale
+            };
+        }
+       
+        updateRotation() {
+            this.transform = {
+                ...this.transform,
+                rotate: this.rotation
+            };
+        }
+        imageUpload(){
+            this.dialogRef.close();
+        }
+    
+}
+*/

@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 
 import { Router } from '@angular/router';
 
@@ -12,7 +13,7 @@ export class ContentHeaderComponent  {
   
 
   @Output() public sidenavToggle = new EventEmitter();
-  constructor(public router: Router) { }
+  constructor(public router: Router, private dialog: MatDialog) { }
 
   public links = [
     { name: 'Profile', href:'/', icon: 'manage_accounts'},
@@ -37,6 +38,18 @@ export class ContentHeaderComponent  {
     return !(this.router.url === '/login' || this.router.url === '/signup' || this.router.url === '/home');
   }
 
-  
+  openLogoutConfirmationDialog(){
+    const dialogRef = this.dialog.open(DialogLogoutConfirmation);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.logout();
+      }
+    });
+  }
 
 }
+@Component({
+  selector: 'dialog-logout-confirmation',
+  templateUrl: 'dialog-logout-confirmation.html',
+})
+export class DialogLogoutConfirmation {}

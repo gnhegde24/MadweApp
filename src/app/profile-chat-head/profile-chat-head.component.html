@@ -3,8 +3,12 @@
     <div class="follower-details">
         <ul class="list-inline">
             <li *ngFor="let profileMatchImage of profilePanelMatches">
-                <button class="profile-icon" matBadge="1 " matBadgeSize="medium" matBadgeColor="warn">
-                    <img class="follower-image" src={{profileMatchImage}} alt=" ">
+                <button class="profile-icon" matBadge="1 " matBadgeSize="medium" matBadgeColor="warn" (click)="onChatSubmit()">
+                   
+                    <div class="rotate">
+                        <img class="follower-image" src={{profileMatchImage}} alt=" ">
+                    </div>
+                   
                 </button>
 
             </li>

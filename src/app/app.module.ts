@@ -59,6 +59,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { ProfileMatchesComponent } from './profile-matches/profile-matches.component';
 import { ProfileChatHeadComponent } from './profile-chat-head/profile-chat-head.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
+import { InterestBasicInfoComponent } from './interest-basic-info/interest-basic-info.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import {DialogLogoutConfirmation} from './content-header/content-header.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +78,9 @@ import { ProfileCardComponent } from './profile-card/profile-card.component';
     BasicInfoComponent,
     ProfileMatchesComponent,
     ProfileChatHeadComponent,
-    ProfileCardComponent
+    ProfileCardComponent,
+    InterestBasicInfoComponent,
+    DialogLogoutConfirmation
   ],
   imports: [
     BrowserModule,
@@ -99,6 +104,7 @@ import { ProfileCardComponent } from './profile-card/profile-card.component';
     MatGridListModule,
     MatIconModule,
     MatInputModule,
+    ImageCropperModule ,
     MatListModule,
     MatMenuModule,
     MatPaginatorModule,

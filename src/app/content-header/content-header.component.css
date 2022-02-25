@@ -1,14 +1,47 @@
-  .my-tittle{
-    flex: 1 1 auto;
-    font-family: 'Pacifico', cursive;
-    font-size: 42px;
-    font-weight: 450;
+  .my-tittle {
+      flex: 1 1 auto;
+      font-family: 'Pacifico', cursive;
+      font-size: 42px;
+      font-weight: 450;
+      padding-left: 10px;
   }
-
-.header .mat-toolbar {
-  background:lightsteelblue;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 10px;
- }
+  
+  .header .mat-toolbar {
+      background-color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 10px;
+  }
+  
+  .mat-raised-button {
+      color: black;
+      background-color: whitesmoke;
+      box-shadow: 0 5px 15px 5px black;
+      border-radius: 10px;
+      cursor: pointer;
+  }
+  
+   ::ng-deep.mat-dialog-container {
+      background: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 1px 20px 10px rgba(255, 255, 255, 0.5);
+      box-sizing: border-box;
+      border-radius: 20px !important;
+      /* height: 250px !important;
+      width: auto; */
+  }
+  
+   ::ng-deep.dialog-content {
+      font-family: 'Liu Jian Mao Cao', cursive !important;
+      color: white;
+      letter-spacing: 1px;
+      font-size: 28px;
+      font-weight: 500;
+      padding: 10px 0 10px 0;
+      margin: 10px 0 10px 0;
+  }
+  
+   ::ng-deep.mat-dialog-actions {
+      margin-top: 20px;
+      bottom: 0px !important;
+  }

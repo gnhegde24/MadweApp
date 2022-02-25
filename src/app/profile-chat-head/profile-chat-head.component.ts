@@ -26,4 +26,8 @@ export class ProfileChatHeadComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onChatSubmit(){
+    console.log("Clicking profile...pls start chat");
+  }
+
 }
