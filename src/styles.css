@@ -2,14 +2,15 @@
 
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
-/* 
+/*
 body {
   margin: 0;
   font-family: sans-serif;
 }
  */
 
-@font-face {
+
+/* @font-face {
     font-family: "logo-font";
     src: url(./assets/fonts/CalligraphyWet-AX62.ttf);
-}
+} */

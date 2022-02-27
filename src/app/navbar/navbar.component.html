@@ -11,7 +11,7 @@
             </a>
         </mat-list>
     </div> -->
-   
+
 
 <div class="navbar">
     <mat-nav-list>
@@ -19,14 +19,16 @@
             <div class="profile">
                 <span class="material-icons"> account_circle </span>
             </div>
-            <style>
+            <!-- <style>
                 @import url('https://fonts.googleapis.com/css2?family=Ravi+Prakash&display=swap');
+            </style> -->
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
             </style>
-            <a class="nav-list" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"
-                *ngFor="let link of links" [routerLink]="[link.href]">
+            <a class="nav-list" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" *ngFor="let link of links" [routerLink]="[link.href]">
                 <mat-list-item>
-                    <mat-icon  inline="true" mat-list-icon>{{link.icon}}</mat-icon>
-                    <div mat-line >{{link.name}}</div>
+                    <mat-icon inline="true" mat-list-icon>{{link.icon}}</mat-icon>
+                    <div mat-line>{{link.name}}</div>
                 </mat-list-item>
             </a>
         </mat-list>

@@ -6,6 +6,7 @@
     min-height: 500px;
     border-radius: 25px;
     box-shadow: 0 1px 30px 10px black;
+    background: transparent;
 }
 
 .example-card {
@@ -18,6 +19,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     flex-direction: column;
+    background: transparent;
 }
 
 .example-card::-webkit-scrollbar {

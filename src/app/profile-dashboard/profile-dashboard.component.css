@@ -1,3 +1,41 @@
+video {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -9;
+    /* filter: blur(1px); */
+}
+
+.profile-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 14px;
+    width: fit-content;
+    left: 450px;
+}
+
+.profile-title-card {
+    width: fit-content;
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 36px;
+    color: teal;
+    z-index: 9;
+    text-align: center;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    box-shadow: 0 1px 20px 5px black;
+}
+
+.profile-dashboard-section {
+    margin: 20px;
+    padding: 10px;
+}
+
+
 /*
 margin: 0 45px;
     padding: 0;

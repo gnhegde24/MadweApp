@@ -1,16 +1,30 @@
-.profile .material-icons{
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  font-size: 150px;
+.profile .material-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150px;
+    padding: 10px;
+    color: yellowgreen;
 }
 
-.mat-list-item{
-  font-family: 'Ravi Prakash', cursive;
-  font-size: 24px;
-  left: 0;
+.mat-list-base .mat-list-item .mat-list-icon,
+.mat-list-base .mat-list-option .mat-list-icon {
+    color: whitesmoke !important;
 }
 
+::ng-deep.mat-list-base .mat-list-item .mat-list-text>*,
+.mat-list-base .mat-list-option .mat-list-text>* {
+    font-family: 'Pangolin', cursive !important;
+    font-size: 24px !important;
+    left: 0;
+    font-weight: 400 !important;
+    padding: 5px !important;
+    color: whitesmoke;
+}
+
+::ng-deep.mat-drawer-inner-container {
+    background: rgba(0, 0, 0, 0.9);
+}
 
 
 /*

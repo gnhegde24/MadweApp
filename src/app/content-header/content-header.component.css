@@ -7,7 +7,7 @@
   }
   
   .header .mat-toolbar {
-      background-color: white;
+      background: transparent;
       position: fixed;
       top: 0;
       left: 0;
@@ -23,7 +23,7 @@
   }
   
    ::ng-deep.mat-dialog-container {
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.9) !important;
       box-shadow: 0 1px 20px 10px rgba(255, 255, 255, 0.5);
       box-sizing: border-box;
       border-radius: 20px !important;

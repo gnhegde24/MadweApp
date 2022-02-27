@@ -94,11 +94,21 @@
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
 
-                <mat-card-actions>
+                <div class="submit-buttons">
+                    <div class="signup-cancel">
+                        <mat-card-actions>
 
-                    <button mat-raised-button type="submit" [disabled]="registerForm.invalid" [style.color]="'black'" [style.background-color]="registerForm.invalid ? 'red' : 'greenyellow' " #tooltip="matTooltip" matTooltip="Click to register" matTooltipPosition="below">REGISTER</button>
-                    <button mat-raised-button mat-dialog-close>Cancel</button>
-                </mat-card-actions>
+                            <button mat-raised-button type="submit" [disabled]="registerForm.invalid" [style.color]="'black'" [style.background-color]="registerForm.invalid ? 'silver' : 'greenyellow' " #tooltip="matTooltip" matTooltip="Click to register" matTooltipPosition="below">REGISTER</button>
+                            <button mat-raised-button mat-dialog-close>Cancel</button>
+                        </mat-card-actions>
+                    </div>
+                    <div class="google-facebook">
+                        <mat-card-actions>
+                            <button mat-raised-button matTooltip="SignUp with Google" matTooltipPosition="below" type="submit" [style.color]="'black'"><i class="fab fa-google"></i></button>
+                            <button mat-raised-button type="submit" matTooltip="SignUp with Facebook" matTooltipPosition="below" [style.color]="'black'"><i class="fab fa-facebook-f"></i></button>
+                        </mat-card-actions>
+                    </div>
+                </div>
             </form>
         </mat-card-content>
     </mat-card>

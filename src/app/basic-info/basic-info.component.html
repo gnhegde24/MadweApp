@@ -31,7 +31,7 @@
                             <mat-form-field appearance="outline">
                                 <mat-label>First Name</mat-label>
 
-                                <input matInput placeholder="Praveen" required autocomplete="off" formControlName="firstname">
+                                <input matInput placeholder="Ex: Praveen" required autocomplete="off" formControlName="firstname">
                             </mat-form-field>
                         </td>
                         <td>
@@ -39,16 +39,16 @@
                                 <mat-form-field appearance="outline">
                                     <mat-label>Last Name</mat-label>
 
-                                    <input matInput placeholder="Hegde" required autocomplete="off" formControlName="lastname">
+                                    <input matInput placeholder="Ex: Hegde" required autocomplete="off" formControlName="lastname">
                                 </mat-form-field>
                             </section>
                         </td>
                         <td>
                             <section>
                                 <mat-form-field appearance="outline">
-                                    <span matPrefix>@ &nbsp;</span>
-
-                                    <input matInput required autocomplete="off" formControlName="id">
+                                    <span matPrefix *ngIf="isUserIdColumnClicked">@ &nbsp;</span>
+                                    <mat-label>UserId</mat-label>
+                                    <input matInput placeholder="unique Username" matInput required autocomplete="off" formControlName="id" (click)="isUserIdDisplay()">
                                 </mat-form-field>
                             </section>
                         </td>
@@ -96,7 +96,8 @@
                 </td>
                 <td class="profile-details">
                     <tr>
-                        <label class="circle" matTooltip="Click on to choose a photo" [ngStyle]="{'background-color':  circleColor }">
+                        <!-- <label class="circle" matTooltip="Click on to choose a photo" [ngStyle]="{'background-color':  circleColor }"> -->
+                        <label class="circle" matTooltip="Click on to choose a photo">
                             <button type="file"  (click)="onImageUpload($event)" hidden></button>
 
                             <img *ngIf="!showInitials" src={{photoUrl}}>

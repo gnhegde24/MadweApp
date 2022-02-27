@@ -1,7 +1,89 @@
-.dashboard {
+.profile-personal-info-card {
+    display: flex;
+    width: fit-content;
+    background: transparent;
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    box-shadow: 0 1px 20px 5px black;
+}
+
+
+/* .cover-photo {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 200px;
+    width: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+} */
+
+.profile-photo {
+    border: 2px solid #fff;
+    position: relative;
+    font-size: 50px;
+    font-family: cursive;
+    letter-spacing: 0.3px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-details-section {
+    position: relative;
+    width: fit-content;
+    float: right;
+    top: 30px;
+}
+
+.profile-id {
+    position: relative;
+    padding: 5px;
+}
+
+.username {
+    font-family: 'Pacifico', cursive;
+    font-size: 32px;
+    display: inline-block;
+}
+
+.userid {
+    font-family: 'Teko', sans-serif;
+    display: block;
+    padding: 5px 0 0 5px;
+    color: greenyellow;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+}
+
+.assets {
+    position: relative;
+    display: flex;
+    left: 10px;
+    top: 20px;
+}
+
+.name {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.handle {
+    display: block;
+    color: greenyellow;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+
+/* .dashboard {
     position: fixed;
-    margin: 80px 0 10px 20px;
-    padding: 0;
     height: auto;
     width: 400px;
     float: left;
@@ -102,3 +184,7 @@
 .assets {
     display: flex;
 }
+
+.profile-details-section {
+    backdrop-filter: blur(8px) saturate(10%);
+} */
