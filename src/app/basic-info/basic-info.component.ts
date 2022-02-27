@@ -35,11 +35,16 @@ export class BasicInfoComponent implements OnInit {
   croppedImage: any = '';
   imagePath: string;
   imageModel: any = {};
+  isUserIdColumnClicked: boolean=false;
   private colors = [
     '#EB7181', // red
-    '#468547', // green
-    '#FFD558', // yellow
-    '#3670B2', // blue
+    '#ff9933', // orange
+    '#ff6699', // pink
+    '#003399', // blue
+    '#00ff99', // red
+    '#ffff00', // orange
+    '#996633', // pink
+    '#b3b300', // blue
   ];
 
   languages: String[] = ['Kannada', 'Hindi', 'English', 'Bengali', 'Marathi', 'Telugu',
@@ -83,6 +88,7 @@ export class BasicInfoComponent implements OnInit {
       ]
     }
   ];
+  
 
   constructor(private router: Router, private formBuilder: FormBuilder,
     private profileService: ProfileService,
@@ -91,8 +97,8 @@ export class BasicInfoComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.showInitials) {
-      // this.initials = this.showInitialsService.createInititals();
-      this.initials="GH";
+      this.initials = this.showInitialsService.createInititals();
+      //this.initials="GH";
       const randomIndex = Math.floor(Math.random() * Math.floor(this.colors.length));
       this.circleColor = this.colors[randomIndex];
     }
@@ -211,7 +217,9 @@ export class BasicInfoComponent implements OnInit {
 
     }
 
-
+isUserIdDisplay(){
+  this.isUserIdColumnClicked = true;
+}
 }
 
 export class DialogData {

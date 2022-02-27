@@ -31,8 +31,10 @@
 }
 
 .login-card {
+    height: fit-content;
     width: 400px;
     background: rgba(0, 0, 0, 0.8);
+    background-color: wheatsmoke;
     padding: 0 24px;
     box-shadow: 0 1px 20px 10px rgba(255, 255, 255, 0.5);
     box-sizing: border-box;
@@ -64,4 +66,52 @@
     border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
+}
+
+.submit-buttons {
+    display: inline-flex;
+    padding: 5px;
+}
+
+.google-facebook {
+    padding-left: 50px;
+}
+
+.fa-google {
+    color: royalblue;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.fa-facebook-f {
+    color: teal;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.login-error {
+    color: white;
+    font-size: 16px;
+    text-shadow: 2px 2px firebrick;
+}
+
+.fa-user-alien {
+    color: white;
+}
+
+.login-error-icon {
+    font-size: 16px;
+    text-shadow: 2px 2px firebrick;
+}
+
+.login-error-instruction {
+    font-size: 12px;
+    color: white;
+    text-shadow: 1px 1px midnightblue;
+    padding: 5px;
+}
+
+.fa-user-astronaut {
+    color: white;
+    padding: 2px;
 }

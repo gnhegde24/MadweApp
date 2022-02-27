@@ -11,10 +11,10 @@
         </div>
         <mat-card-title>Madwe Login</mat-card-title>
         <mat-card-content>
-            <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+            <form [formGroup]="loginForm">
                 <mat-form-field>
                     <mat-label>Email / Phone Number</mat-label>
-                    <input matInput type="email" placeholder="Ex: pshegde22@gmail.com/8277004799" formControlName="emailOrPhone" required autocomplete="off" [errorStateMatcher]="matcher">
+                    <input matInput type="email" placeholder="Ex: pshegde22@gmail.com OR 8277004799" formControlName="emailOrPhone" required autocomplete="off" [errorStateMatcher]="matcher">
                     <mat-error>
                         <span *ngIf="!loginForm.get('emailOrPhone').valid && loginForm.get('emailOrPhone').touched">Please
                      enter valid email</span>
@@ -36,11 +36,32 @@
                     </mat-error>
                 </mat-form-field>
 
-                <mat-card-actions>
-                    <button mat-raised-button type="submit" [disabled]="loginForm.invalid" [style.color]="'black'" [style.background-color]="loginForm.invalid ? 'red' : 'greenyellow' ">LOGIN</button>
-                    <button mat-raised-button mat-dialog-close>Cancel</button>
-                </mat-card-actions>
+                <div class="submit-buttons">
+                    <div class="login-cancel">
+                        <mat-card-actions>
+                            <button mat-raised-button type="submit" [disabled]="loginForm.invalid" [style.color]="'black'" [style.background-color]="loginForm.invalid ? 'silver' : 'greenyellow' " (click)="onFormSubmit(loginForm.value)">LOGIN</button>
+                            <button mat-raised-button mat-dialog-close>Cancel</button>
+                        </mat-card-actions>
+                    </div>
+
+                    <div class="google-facebook">
+                        <mat-card-actions>
+                            <button mat-raised-button matTooltip="Login with Google" matTooltipPosition="below" type="submit" [style.color]="'black'" (click)="loginWithGoogle()"><i class="fab fa-google"></i></button>
+                            <button mat-raised-button type="submit" matTooltip="Login with Facebook" matTooltipPosition="below" [style.color]="'black'"><i class="fab fa-facebook-f"></i></button>
+                        </mat-card-actions>
+                    </div>
+                </div>
             </form>
+            <div class="login-error" *ngIf="isLoginError">
+
+                <mat-label>
+                    <!-- <mat-icon class="login-error-icon">person_off</mat-icon> -->
+                    <i class="fas fa-user-astronaut"></i>!? Oops!! LogIn failed Successfully..</mat-label>
+                <div class="login-error-instruction">
+                    No matches found please SignUp or try login again..
+                </div>
+            </div>
+
         </mat-card-content>
     </mat-card>
 </div>

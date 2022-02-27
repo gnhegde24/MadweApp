@@ -1,11 +1,29 @@
 <div class="profile-page">
+    <video playsinline autoplay muted loop>
+        <!-- <source src="https://cdn.videvo.net/videvo_files/video/free/2019-07/small_watermarked/Raw_Vegan_Blueberry_Cake_Cut_Birthday_Cooking_preview.webm" type="video/webm"> -->
+        <source src="./assets/videos/Elster.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!--Header goes here-->
+    <div class="profile-header">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+        </style>
 
-    <app-profile-card></app-profile-card>
-    <!--followers block-->
-    <app-profile-chat-head></app-profile-chat-head>
+        <mat-card class="profile-title-card">
+            <b><i>Your Dashboard</i></b>
+        </mat-card>
 
 
-    <div class="matching-profiles">
-        <app-profile-matches> </app-profile-matches>
+    </div>
+    <div class="profile-dashboard-section">
+        <app-profile-card></app-profile-card>
+
+        <app-profile-chat-head></app-profile-chat-head>
+
+
+        <!--  <div class="matching-profiles">
+            <app-profile-matches> </app-profile-matches>
+        </div> -->
     </div>
 </div>

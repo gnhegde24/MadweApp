@@ -1,14 +1,14 @@
 <mat-sidenav-container fullscreen>
-  <mat-sidenav #sidenav (click)="sidenav.toggle()" >
-    <!--this is a place for us to add side-nav code-->
-    <app-navbar ></app-navbar>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <!--in here all the content must reside. We will add a navigation header as well-->
-    <app-content-header (sidenavToggle)="sidenav.toggle()"></app-content-header>
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-    <app-content-footer ></app-content-footer>
-  </mat-sidenav-content>
+    <mat-sidenav #sidenav (click)="sidenav.toggle()">
+        <!--this is a place for us to add side-nav code-->
+        <app-navbar></app-navbar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!--in here all the content must reside. We will add a navigation header as well-->
+        <app-content-header (sidenavToggle)="sidenav.toggle()"></app-content-header>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+        <app-content-footer></app-content-footer>
+    </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,7 +1,188 @@
-.introq {
-    padding: 60px 0 0 0;
-    display: relative;
+video {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -9;
+    /* filter: blur(1px); */
 }
+
+.intro-questions-title-card {
+    width: fit-content;
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 36px;
+    color: teal;
+    z-index: 9;
+    text-align: center;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    box-shadow: 0 1px 20px 5px black;
+}
+
+.question-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 14px;
+    width: fit-content;
+    left: 450px;
+}
+
+.questions-grid {
+    position: relative;
+    top: 30px;
+}
+
+.mat-grid-tile {
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 1px 20px 5px black;
+}
+
+.mat-grid-tile.top-questions {
+    position: relative;
+    height: 400px !important;
+    flex-grow: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px !important;
+}
+
+.mat-grid-tile.added-questions {
+    position: absolute;
+    height: 490px !important;
+    width: 600px !important;
+    flex-grow: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mat-grid-tile.input-questions {
+    position: relative;
+    height: 50px !important;
+    top: 20px !important;
+    width: 600px !important;
+    backdrop-filter: blur(2px);
+}
+
+::ng-deep textarea {
+    min-width: 150px !important;
+    max-width: 630px !important;
+    width: 100% !important;
+    height: 50px !important;
+    border-radius: 5px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: 'Architects Daughter', cursive;
+    font-weight: bold !important;
+    font-size: 18px;
+    color: teal;
+    resize: none;
+}
+
+::ng-deep .q-label {
+    position: fixed;
+    z-index: 9;
+    font-size: 20px;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bolder;
+    color: steelblue;
+}
+
+.chip-list {
+    padding-top: 20px;
+}
+
+.user-added-questions {
+    padding-top: 20px;
+}
+
+.user_added_question {
+    color: seagreen;
+}
+
+.mat-grid-tile.top-questions::-webkit-scrollbar {
+    display: none;
+}
+
+.mat-grid-tile.added-questions::-webkit-scrollbar {
+    display: none;
+}
+
+ ::ng-deep textarea::-webkit-scrollbar {
+    display: none !important;
+}
+
+ ::ng-deep .mat-grid-tile .mat-figure {
+    padding: 5px !important;
+    display: table-cell !important;
+}
+
+.back-icon {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+.submit-icon {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+::ng-deep.add-icon {
+    position: fixed;
+    bottom: 70px;
+    left: 620px;
+}
+
+#add_mat_icon {
+    font-size: 50px;
+    align-items: center;
+    z-index: 99;
+}
+
+ ::ng-deep .mat-chip-list-wrapper {
+    position: absolute;
+    width: 100%;
+    margin-left: 0;
+    height: fit-content !important;
+}
+
+.mat-chip {
+    font-family: 'Architects Daughter', cursive;
+    font-weight: bold !important;
+    font-size: 18px;
+}
+
+ ::ng-deep .mat-tooltip {
+    font-family: 'Architects Daughter', cursive !important;
+    font-size: small;
+}
+
+.mat-flat-button.mat-accent,
+.mat-raised-button.mat-accent,
+.mat-fab.mat-accent,
+.mat-mini-fab.mat-accent {
+    background-color: lightsteelblue;
+}
+
+
+/*
 
 .question-header {
     padding: 10px;
@@ -153,74 +334,4 @@
 }
 
 
-/*
-
-::ng-deep .user-input .mat-input-element {
-    position: absolute;
-    background-color: blueviolet !important;
-    max-width: 100% !important;
-    padding: 5px !important;
-}
-
-.abc {
-font-family: 'Indie Flower', cursive;
-font-size: 24px;
-font-weight: bolder;
-align-items: center;
-display: block;
-border-radius: 10px;
-padding: 10px 10px 10px;
-box-shadow: 0 1px 20px 5px rgba(10, 9, 9, 0.5);
-box-sizing: border-box;
-margin: 10px;
-width: 50%;
-height: 100vh;
-}
-
-.mat-standard-chip {
-font-family: 'Shadows Into Light', cursive;
-font-size: 18px;
-font-weight: bolder;
-color: rgb(23, 18, 58)
-}
-
-.mat-option {
-font-family: 'Shadows Into Light', cursive;
-font-size: 18px;
-font-weight: bolder;
-color: rgb(23, 18, 58)
-}
-
-.mat-flat-button.mat-accent,
-.mat-raised-button.mat-accent,
-.mat-fab.mat-accent,
-.mat-mini-fab.mat-accent {
-background-color: lightsteelblue;
-}
-
-.back-icon {
-position: fixed;
-bottom: 10px;
-left: 10px;
-}
-
-input.mat-chip-input {
-flex: 1 0 25px;
-}
-
-.submit-icon {
-position: fixed;
-bottom: 10px;
-right: 10px;
-}
-*/
-
-
-/*
-#new-question {
-padding: 5px 0 0 0;
-width: 100%;
-resize: vertical;
-overflow: auto;
-background-color: lawngreen;
 }*/

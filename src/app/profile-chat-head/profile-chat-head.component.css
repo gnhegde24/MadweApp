@@ -69,7 +69,6 @@
     border-top-right-radius: 25px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    margin: 500px 0 10px 20px;
     height: 115px;
     min-width: 300px;
     position: absolute;
@@ -77,6 +76,7 @@
     overflow-x: scroll;
     overflow-y: hidden;
     flex-direction: row;
+    margin: 10px;
 }
 
 ::-webkit-scrollbar {

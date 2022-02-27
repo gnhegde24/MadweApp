@@ -14,7 +14,7 @@ export class InterestBasicInfoComponent implements OnInit {
   }
 
   submit() {
-    this.router.navigate(['matches']);
+    this.router.navigate(['introq']);
   }
 
 

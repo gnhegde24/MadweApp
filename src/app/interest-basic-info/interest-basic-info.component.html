@@ -1,8 +1,30 @@
-<div class="basic-info-interests">
-    <app-intro-interests></app-intro-interests>
-    <app-basic-info></app-basic-info>
-</div>
+<div class="basic-info-interests-header">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <video playsinline autoplay muted loop>
+        <!-- <source src="https://cdn.videvo.net/videvo_files/video/free/2019-07/small_watermarked/Raw_Vegan_Blueberry_Cake_Cut_Birthday_Cooking_preview.webm" type="video/webm"> -->
+        <source src="./assets/videos/CoupleHeart.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!--Header goes here-->
+    <div class="interests-header">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+        </style>
 
+        <mat-card class="basicinfo-interests-card">
+            <b><i>Interests & Basic Info</i></b>
+        </mat-card>
+
+
+    </div>
+    <div class="basic-info-interests">
+        <app-intro-interests></app-intro-interests>
+        <app-basic-info></app-basic-info>
+    </div>
+    <!-- <app-intro-interests></app-intro-interests>
+    <app-basic-info></app-basic-info> -->
+
+</div>
 
 <div class="submit-icon">
     <button mat-fab aria-label="submit" matTooltip="Submit & Next" (click)="submit()">

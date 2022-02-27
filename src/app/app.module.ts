@@ -43,7 +43,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; 
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { IntoQuestionsComponent } from './into-questions/into-questions.component';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
@@ -54,14 +54,22 @@ import { ContentFooterComponent } from './content-footer/content-footer.componen
 import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
 import { BasicInfoComponent } from './basic-info/basic-info.component';
 import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
-import { JwtHelperService, JWT_OPTIONS    } from '@auth0/angular-jwt';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ProfileMatchesComponent } from './profile-matches/profile-matches.component';
 import { ProfileChatHeadComponent } from './profile-chat-head/profile-chat-head.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { InterestBasicInfoComponent } from './interest-basic-info/interest-basic-info.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
-import {DialogLogoutConfirmation} from './content-header/content-header.component';
+import { DialogLogoutConfirmation } from './content-header/content-header.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
+/* import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'; */
+// import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+// import {
+//   GoogleLoginProvider,
+//   FacebookLoginProvider
+// } from 'angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -104,7 +112,7 @@ import {DialogLogoutConfirmation} from './content-header/content-header.componen
     MatGridListModule,
     MatIconModule,
     MatInputModule,
-    ImageCropperModule ,
+    ImageCropperModule,
     MatListModule,
     MatMenuModule,
     MatPaginatorModule,
@@ -126,19 +134,55 @@ import {DialogLogoutConfirmation} from './content-header/content-header.componen
     MatNativeDateModule,
     HttpClientModule,
     DragDropModule,
+    SocialLoginModule,
     MatPasswordStrengthModule,
     BackButtonDisableModule.forRoot()
   ],
 
   providers: [
-  
+    // {
+    //   provide: 'SocialAuthServiceConfig',
+    //   useValue: {
+    //     autoLogin: false,
+    //     providers: [
+    //       {
+    //         id: GoogleLoginProvider.PROVIDER_ID,
+    //         provider: new GoogleLoginProvider(
+    //           'clientId'
+    //         )
+    //       },
+    //       {
+    //         id: FacebookLoginProvider.PROVIDER_ID,
+    //         provider: new FacebookLoginProvider('clientId')
+    //       }
+    //     ],
+    //     onError: (err) => {
+    //       console.error(err);
+    //     }
+    //   } as SocialAuthServiceConfig,
+    // },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
     },
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-        JwtHelperService
+    JwtHelperService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '448392207315-k95ofe9qll163091ifnidcd0sdhvnacm.apps.googleusercontent.com'
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+
   ],
   bootstrap: [AppComponent]
 })

@@ -105,7 +105,7 @@ export class IntoQuestionsComponent {
   }
 
   submit() {
-    this.router.navigate(['basicinfo']);
+    this.router.navigate(['matches']);
   }
 
   addUserQuestion(userInput: string){
